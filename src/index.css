@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+@import url("https://use.typekit.net/zem7kzy.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inconsolata, monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  background-color: #859ACE;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.outlined {
+  text-shadow: -0.015em -0.015em 0 #1a1a1a, 0.015em -0.015em 0 #1a1a1a, -0.015em 0.015em 0 #1a1a1a, 0.015em 0.015em 0 #1a1a1a;
+  letter-spacing: 0.008em;
+
+}
