@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap");
 @import url("https://use.typekit.net/zem7kzy.css");
 
 @tailwind base;
@@ -10,7 +10,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  background-color: #859ACE;
+  background-color: #f0cfd4;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,7 +19,7 @@
 }
 
 .outlined {
-  text-shadow: -0.015em -0.015em 0 #1a1a1a, 0.015em -0.015em 0 #1a1a1a, -0.015em 0.015em 0 #1a1a1a, 0.015em 0.015em 0 #1a1a1a;
+  text-shadow: -0.015em -0.015em 0 #1a1a1a, 0.015em -0.015em 0 #1a1a1a,
+    -0.015em 0.015em 0 #1a1a1a, 0.015em 0.015em 0 #1a1a1a;
   letter-spacing: 0.008em;
-
 }
