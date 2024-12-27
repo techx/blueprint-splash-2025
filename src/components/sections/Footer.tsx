@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="flex justify-between items-center p-4 bg-gray-100 w-full">
-      <div className="text-lg">Made with ❤️ by the HackMIT team</div>
+      <div className="text-lg">Made with ♡ by the HackMIT team</div>
       <div className="flex space-x-4">
         {socialLinks.map(({ icon: Icon, url }, index) => (
           <a
