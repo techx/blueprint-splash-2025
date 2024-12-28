@@ -10,7 +10,7 @@ import Home from "./components/sections/Home";
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen overflow-hidden justify-between">
+      <div className="flex flex-col h-screen overflow-hidden justify-between relative">
         <Link to="/" className="fixed top-4 left-4 z-50">
           <img
             src={logo}
@@ -29,7 +29,9 @@ function App() {
           </Routes>
         </div>
 
-        <Footer />
+        <div className="absolute bottom-0 w-full">
+          <Footer />
+        </div>
       </div>
     </Router>
   );

@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+public/FINAL_ROOM.glb
+public/FINAL_ROOM_data.bin
