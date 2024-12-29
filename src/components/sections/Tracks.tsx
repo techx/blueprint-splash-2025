@@ -1,6 +1,12 @@
 import Modal from "../Modal";
+import {useState} from "react";
 
 const Tracks = () => {
+  const [isImageClicked, setIsImageClicked] = useState(false);
+
+  const handleImageClick = () => {
+    setIsImageClicked(true);
+  };
   return (
     <div>
       <Modal backgroundColor = "#DABD93" className="w-[85%]">
@@ -18,7 +24,8 @@ const Tracks = () => {
           className="relative w-[60%] h-[100%] flex items-center justify-center rounded-3xl p- mt-8 shadow-lg"
           style={{ backgroundColor: "#F6EBCB" }}
           >
-            <img className="h-full w-auto" src="/src/assets/0_closed_box.png" alt="track" />
+            {!isImageClicked && <img className="h-full w-auto" src="/src/assets/0_closed_box.png" alt="track" onClick={handleImageClick} />}
+            {isImageClicked && <img className="h-full w-auto" src="/src/assets/1_GIF.gif" alt="track" />}            
           </div>
         </div>
       </Modal>
