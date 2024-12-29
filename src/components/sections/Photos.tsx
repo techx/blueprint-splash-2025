@@ -74,16 +74,16 @@ const Photos = () => {
   };
   return (
     <div>
-      <Modal className="w-[85%] overflow-y-auto">
+      <Modal className="w-[85%] overflow-y-scroll no-scrollbar">
         <div className="m-4">
-          <h1 className="text-4xl font-bold mb-6">Photos</h1>
-          <p className="text-lg leading-relaxed">
-            Here are some of our photos from past hackathons!
-          </p>
-          <div className="overflow-x-auto">
+          <img
+            src="/images/Photos/transparent bg.svg"
+          />
+          <h1 className="text-4xl font-bold mb-6 photo-title">Photos</h1>
+          <div className="overflow-x-scroll no-scrollbar">
             <div className="h-max w-screen">
               <img
-                src="/images/Photos/photo string.svg"
+                src="/images/Photos/string_with_bg_no_photos.svg"
               />
             </div>
             <div className="flex flex-row">

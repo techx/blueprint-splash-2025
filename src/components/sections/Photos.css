@@ -1,3 +1,24 @@
-.photos {
-    width: 200vw;
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
 }
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Photos Text */
+
+.photo-title {
+    position: absolute;
+    width: 60vw;
+    top: 20vw;
+    left: 40vw;
+    z-index: 94;
+    font-family: "custard", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+  
