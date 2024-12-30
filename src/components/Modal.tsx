@@ -5,7 +5,6 @@ interface ModalProps {
   children: React.ReactNode;
   className?: string;
 }
-
 const Modal = ({
   backgroundColor = "#FDF6E7",
   children,
@@ -13,8 +12,8 @@ const Modal = ({
 }: ModalProps) => {
   return (
     <div className="fixed inset-0 min-h-screen w-full p-4 flex justify-center items-center">
-      <div className="relative h-full w-full mx-auto flex items-center justify-center">
-        {/* Close button - moved outside other containers */}
+      <div className="relative h-full w-full mx-auto flex items-center justify-center overflow-visible">
+        {/* Close button */}
         <a
           href="/"
           className="absolute top-[17%] right-[11%] w-8 h-8 z-30"
@@ -24,10 +23,10 @@ const Modal = ({
         </a>
 
         {/* Content container */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center overflow-visible">
           <div
             className={`
-              relative min-h-[70vh] max-h-[70vh] p-8 mt-8 overflow-hidden z-10
+              relative min-h-[70vh] max-h-[70vh] p-8 mt-8 z-10
               ${className}
             `}
           >
@@ -36,11 +35,11 @@ const Modal = ({
         </div>
 
         {/* Background/style container */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center overflow-visible">
           <div
             className={`
               relative min-h-[70vh] w-[80%] rounded-3xl p-8 mt-8
-              shadow-lg overflow-visible z-0
+              shadow-lg z-0
             `}
             style={{ backgroundColor }}
           ></div>
