@@ -75,15 +75,18 @@ const Photos = () => {
   return (
     <div>
       <Modal className="w-[85%] overflow-y-scroll no-scrollbar">
-        <div className="m-4">
-          <img
-            src="/images/Photos/transparent bg.svg"
-          />
-          <h1 className="text-4xl font-bold mb-6 photo-title">Photos</h1>
+        <div className="m-2">
+          <div className="overflow-hidden">
+            <img
+              src="/images/Photos/transparent bg.svg"
+              className="w-full object-cover"
+            />
+          </div>
+          <h1 className="font-bold photo-title">Photos</h1>
           <div className="overflow-x-scroll no-scrollbar">
-            <div className="h-max w-screen">
+            <div className="w-[155%]">
               <img
-                src="/images/Photos/string_with_bg_no_photos.svg"
+                src="/images/Photos/photo string.svg"
               />
             </div>
             <div className="flex flex-row">
@@ -97,7 +100,7 @@ const Photos = () => {
               /> 
             </div>
           </div>
-          <h1 className="text-4xl font-bold mb-6">Our Testimonials</h1>
+          <h1 className="font-bold testimonials-title mt-4">Our Testimonials</h1>
           <div className="h-full">
             <Slider {...setting}>
             {TestimonialsData.map((item: Testimonial) => {
