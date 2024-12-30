@@ -3,11 +3,7 @@ import Modal from "../Modal";
 import big_image from "/src/assets/faq.png";
 import OpenBullet from "/src/assets/faq_open.svg";
 import ClosedBullet from "/src/assets/faq_closed.svg";
-import { GpsFixed, RateReviewSharp } from "@mui/icons-material";
-
-// Overall issues is that the image needs to overlay with the modal instead of
-// being inside it because otherwise there isn't enough room for the FAQ questions.
-// Also the font of the words needs to be fixed.
+import './faq.css';
 
 const FAQ = () => {
   const [openIndexes, setOpenIndexes] = useState<number[]>([]);
@@ -118,124 +114,124 @@ const FAQ = () => {
   };
 
   return (
-    <>
-      <Modal className="w-[85%]">
-        {/* Need to fix font of word "FAQ" here */}
-        <h1 className="text-4xl font-bold mb-6">FAQ</h1>
-        <div className="flex flex-row items-center justify-center">
-          {/* I'm not sure if I should've put the image inside the Modal or outside */}
+    <Modal className="w-[85%] p-8">
+      <div className="flex">
+        <div className="relative w-1/2 flex flex-col items-center">
+          <h1 className="text-5xl font-bold text-center mb-6 text-[#ab5442]">
+            FAQ
+          </h1>
           <img
             src={big_image}
             alt="cute characters lawl :3"
-            style={{ width: "1020px", height: "574px" }}
+            className="absolute -bottom-16 right-10"
+            style={{
+              height: "50vh",
+              width: "auto",
+              maxWidth: "none",
+            }}
           />
-          <div className="flex flex-col min-w-[50%] max-w-[50%] max-h-[100%] h-[60vh]">
-            <div className="overflow-y-auto pr-4 space-y-4">
-              <ul className="list-disc pl-6 space-y-2">
-                {/* Below is just the FAQ stuff  */}
-                <div
-                  style={{ padding: "20px", maxWidth: "800px", margin: "auto" }}
+        </div>
+
+        <div className="w-[45%] overflow-y-auto max-h-[60vh] scrollbar-custom">
+          <div>
+            <h2 className="text-2xl font-bold mb-4 ml-6 text-[#99432e]">General</h2>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              {generalQuestions.map((item, index) => (
+                <li
+                  key={index}
+                  style={{
+                    marginBottom: "10px",
+                    display: "flex",
+                    alignItems: "flex-start",
+                  }}
                 >
-                  {/* Need to fix font of "General" here */}
-                  <h1 className="text-4xl font-bold mb-6">General</h1>
-                  <ul style={{ listStyleType: "none", padding: 0 }}>
-                    {/* also need to fix font of FAQ questions here */}
-                    {generalQuestions.map((item, index) => (
-                      <li
-                        key={index}
-                        style={{
-                          marginBottom: "10px",
-                          display: "flex",
-                          alignItems: "flex-start",
-                        }}
-                      >
-                        {/* Just for the bullet points using assets, can ignore */}
-                        <img
-                          src={
-                            openIndexes.includes(index)
-                              ? OpenBullet
-                              : ClosedBullet
-                          }
-                          alt={openIndexes.includes(index) ? "Open" : "Closed"}
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            marginRight: "10px",
-                            cursor: "pointer",
-                          }}
-                          onClick={() => toggleItem(index)}
-                        />
-                        <div>
-                          <div
-                            onClick={() => toggleItem(index)}
-                            style={{
-                              cursor: "pointer",
-                              fontWeight: "bold",
-                              marginBottom: "5px",
-                            }}
-                          >
-                            {item.title}
-                          </div>
-                          {openIndexes.includes(index) && (
-                            <div>{item.content}</div>
-                          )}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                  {/* Replicated above FAQ section for Logistics Qs, need to fix font of word 
-                  "Logistics" and font of questions again */}
-                  <h1 className="text-4xl font-bold mb-6">Logistics</h1>
-                  <ul style={{ listStyleType: "none", padding: 0 }}>
-                    {logisticsQuestions.map((item, index) => (
-                      <li
-                        key={index}
-                        style={{
-                          marginBottom: "10px",
-                          display: "flex",
-                          alignItems: "flex-start",
-                        }}
-                      >
-                        <img
-                          src={
-                            openIndexes.includes(index)
-                              ? OpenBullet
-                              : ClosedBullet
-                          }
-                          alt={openIndexes.includes(index) ? "Open" : "Closed"}
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            marginRight: "10px",
-                            cursor: "pointer",
-                          }}
-                          onClick={() => toggleItem(index)}
-                        />
-                        <div>
-                          <div
-                            onClick={() => toggleItem(index)}
-                            style={{
-                              cursor: "pointer",
-                              fontWeight: "bold",
-                              marginBottom: "5px",
-                            }}
-                          >
-                            {item.title}
-                          </div>
-                          {openIndexes.includes(index) && (
-                            <div>{item.content}</div>
-                          )}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </ul>
-            </div>
+                  <img
+                    src={
+                      openIndexes.includes(index)
+                        ? OpenBullet
+                        : ClosedBullet
+                    }
+                    alt={openIndexes.includes(index) ? "Open" : "Closed"}
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      marginRight: "10px",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => toggleItem(index)}
+                  />
+                  <div>
+                    <div
+                      onClick={() => toggleItem(index)}
+                      style={{
+                        cursor: "pointer",
+                        fontWeight: "bold",
+                        marginBottom: "5px",
+                      }}
+                    >
+                      {item.title}
+                    </div>
+                    {openIndexes.includes(index) && (
+                      <div style={{
+                        color: '#99432e',
+                        paddingRight: '10px',
+                      }}>{item.content}</div>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <h2 className="text-2xl font-bold mb-4 ml-6 text-[#99432e]">Logistics</h2>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              {logisticsQuestions.map((item, index) => (
+                <li
+                  key={index}
+                  style={{
+                    marginBottom: "10px",
+                    display: "flex",
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <img
+                    src={
+                      openIndexes.includes(index)
+                        ? OpenBullet
+                        : ClosedBullet
+                    }
+                    alt={openIndexes.includes(index) ? "Open" : "Closed"}
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      marginRight: "10px",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => toggleItem(index)}
+                  />
+                  <div>
+                    <div
+                      onClick={() => toggleItem(index)}
+                      style={{
+                        cursor: "pointer",
+                        fontWeight: "bold",
+                        marginBottom: "5px",
+                      }}
+                    >
+                      {item.title}
+                    </div>
+                    {openIndexes.includes(index) && (
+                      <div style={{
+                        color: '#99432e',
+                        paddingRight: '10px',
+                      }}>{item.content}</div>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </Modal>
-    </>
+      </div>
+    </Modal>
   );
 };
 
