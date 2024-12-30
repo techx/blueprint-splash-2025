@@ -5,6 +5,7 @@ import About from "./components/sections/About";
 import Tracks from "./components/sections/Tracks";
 import FAQ from "./components/sections/FAQ";
 import Photos from "./components/sections/Photos";
+import Schedule from "./components/sections/Schedule";
 import Home from "./components/sections/Home";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/tracks" element={<Tracks />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/schedule" element={<Schedule />} />
             <Route path="/photos" element={<Photos />} />
           </Routes>
         </div>
