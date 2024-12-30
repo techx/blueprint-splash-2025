@@ -49,6 +49,9 @@ const Home: React.FC = () => {
       <Link to="/photos" className="text-blue-600 hover:underline">
         Photos
       </Link>
+      <Link to="/schedule" className="text-blue-600 hover:underline">
+        Schedule
+      </Link>
     </nav>
   );
 };
