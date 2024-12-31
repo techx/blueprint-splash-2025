@@ -114,14 +114,14 @@ const Tracks = () => {
           </div>
         </div>
       </Modal>
-      {track && <TrackModal track={track} />}
+      {track && <TrackModal track={track} setTrack={setTrack}/>}
     </div>
   );
 };
 
 export default Tracks;
 
-function TrackModal({ track }: { track: number }) {
+function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
 
   const trackMap: Record<number, string> = {
     1: "Beginner Web Dev",
@@ -211,6 +211,7 @@ function TrackModal({ track }: { track: number }) {
           className="h-auto w-[20vw] -top-20 left-12 absolute"
           src={`/src/assets/opened/donut${track}.png`}
           alt="track"
+          onClick={() => setTrack(0)}
         />
         <div className="w-full flex flex-col gap-8 text-3xl justify-end pb-16 min-w-[30%] max-w-[30%] max-h-[100%] h-[60vh]">
           <div className="bg-[#b27b5d] p-4 text-white rounded-l-3xl shadow-lg hover:bg-[#405a3f]" onClick={() => setTitle(0)}>
@@ -228,7 +229,7 @@ function TrackModal({ track }: { track: number }) {
           className="relative w-[60%] h-[100%] rounded-3xl mt-8 shadow-lg p-8"
           style={{ backgroundColor: "#F6EBCB" }}
         >
-          <div className="w-[75%]">
+          <div className="w-[75%] h-[100%] scroll-auto overflow-y-auto">
             <h1 className="text-6xl font-bold mb-6">{trackMap[track]}</h1>
             <p className="text-lg leading-relaxed">
               {(title == 0) && descriptionMap[track]}
