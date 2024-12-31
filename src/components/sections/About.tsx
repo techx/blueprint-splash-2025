@@ -1,6 +1,6 @@
 import Modal from "../Modal";
 import basket from "../../assets/basket.png";
-import bread from "../../assets/bread_will_this_be_different.png";
+import bread from "../../assets/bread_with_mouse.png";
 
 const About = () => {
   return (
@@ -89,7 +89,7 @@ const About = () => {
             </div>
           </div>
           <div className="min-h-full flex items-end">
-            <img className="translate-y-[15%]" src={bread} alt="bread" />
+            <img className="translate-y-[10%]" src={bread} alt="bread" />
           </div>
         </div>
       </Modal>
