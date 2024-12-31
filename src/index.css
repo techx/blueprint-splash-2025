@@ -6,9 +6,12 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inconsolata, monospace;
-  line-height: 1.5;
+  font-family: neulis-neue, sans-serif;
+  font-style: normal;
   font-weight: 400;
+  /* font-family: Inconsolata, monospace; */
+  /* line-height: 1.5; */
+  /* font-weight: 400; */
 
   background-color: #f0cfd4;
 

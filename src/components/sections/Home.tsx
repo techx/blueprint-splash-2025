@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Model } from "../Final_model.jsx";
+import { Model } from "../Final_model_2.jsx";
 import { Mesh, MeshStandardMaterial } from "three";
 
 interface NameToLink {
@@ -24,43 +24,40 @@ interface HoverableModelProps {
 
 const HoverableModel = ({ onObjectClick, ...props }: HoverableModelProps) => {
   const meshRef = useRef<Mesh>(null);
-  const { scene } = useThree();
+  const { scene, gl } = useThree();
 
   const handlePointerOver = (e: any) => {
     e.stopPropagation();
-    const hoveredObject = e.object as Mesh; // Ensure it's a mesh
-    const hoveredName = hoveredObject.name; // Name of the hovered object
+    const hoveredObject = e.object as Mesh;
+    const hoveredName = hoveredObject.name;
+    gl.domElement.style.cursor = "pointer";
 
-    // console.log(`Hovered over: ${hoveredName}`);
-
-    // Traverse the entire scene to find all meshes with the same name
     scene.traverse((child) => {
       if (child instanceof Mesh && child.name === hoveredName) {
         if (!child.userData.originalMaterial) {
-          child.userData.originalMaterial = child.material; // Save the original material
-          child.userData.originalScale = child.scale.clone(); // Save original scale
+          child.userData.originalMaterial = child.material;
+          child.userData.originalScale = child.scale.clone();
         }
-        child.material = child.material.clone(); // Clone the material
-        (child.material as MeshStandardMaterial).color.set("hotpink"); // Set hover color
-        child.scale.multiplyScalar(1.05); // Make it slightly larger
+        child.material = child.material.clone();
+        (child.material as MeshStandardMaterial).emissive.set("#ffffff");
+        (child.material as MeshStandardMaterial).emissiveIntensity = 0.1;
+        child.scale.multiplyScalar(1.05);
       }
     });
   };
 
   const handlePointerOut = (e: any) => {
     e.stopPropagation();
-    const hoveredObject = e.object as Mesh; // Ensure it's a mesh
-    const hoveredName = hoveredObject.name; // Name of the hovered object
+    const hoveredObject = e.object as Mesh;
+    const hoveredName = hoveredObject.name;
+    gl.domElement.style.cursor = "auto";
 
-    // console.log(`Unhovered: ${hoveredName}`);
-
-    // Traverse the entire scene to restore materials for all meshes with the same name
     scene.traverse((child) => {
       if (child instanceof Mesh && child.name === hoveredName) {
         if (child.userData.originalMaterial) {
-          child.material = child.userData.originalMaterial; // Restore the original material
-          child.scale.copy(child.userData.originalScale); // Restore original scale
-          delete child.userData.originalMaterial; // Clean up userData
+          child.material = child.userData.originalMaterial;
+          child.scale.copy(child.userData.originalScale);
+          delete child.userData.originalMaterial;
           delete child.userData.originalScale;
         }
       }
@@ -69,10 +66,9 @@ const HoverableModel = ({ onObjectClick, ...props }: HoverableModelProps) => {
 
   const handleClick = (e: any) => {
     e.stopPropagation();
-    const clickedObject = e.object as Mesh; // Ensure it's a mesh
-    const clickedName = clickedObject.name; // Name of the clicked object
+    const clickedObject = e.object as Mesh;
+    const clickedName = clickedObject.name;
 
-    // console.log(`Clicked: ${clickedName}`);
     onObjectClick(clickedName);
   };
 
@@ -96,13 +92,12 @@ const Home: React.FC = () => {
       setScale(window.innerWidth < 640 ? 0.4 : 0.6);
     };
 
-    handleResize(); // Set initial scale
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleObjectClick = (clickedMesh: string) => {
-    // console.log(`clicked ${clickedMesh}`);
     if (name_to_link[clickedMesh]) {
       navigate(name_to_link[clickedMesh]);
     }

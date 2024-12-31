@@ -19,8 +19,8 @@
           "name": "Point.001"
         },
         {
-          "color": [1, 1, 1],
-          "intensity": 0.0423941032280591,
+          "color": [1, 0.8428080081939697, 0.7539445161819458],
+          "intensity": 0.06304764122976529,
           "type": "point",
           "name": "Point.002"
         },
@@ -32,9 +32,21 @@
         },
         {
           "color": [1, 0.6874420642852783, 0.5540604591369629],
-          "intensity": 5.430793259889895,
+          "intensity": 12.430793259889895,
           "type": "point",
           "name": "Light.001"
+        },
+        {
+          "color": [1, 0.5853075981140137, 0.5673962831497192],
+          "intensity": 0.08044009755753135,
+          "type": "point",
+          "name": "Point.003"
+        },
+        {
+          "color": [1, 0.6775829195976257, 0.545490562915802],
+          "intensity": 0.14022664156329251,
+          "type": "point",
+          "name": "Point.004"
         }
       ]
     }
@@ -45,7 +57,7 @@
       "name": "Scene",
       "nodes": [
         0, 1, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-        22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35
+        22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
       ]
     }
   ],
@@ -197,7 +209,7 @@
       "name": "*display light",
       "rotation": [-0.7071068286895752, 0, 0, 0.7071068286895752],
       "translation": [
-        1.9971039295196533, 3.029902696609497, -2.0884532928466797
+        1.9971039295196533, 3.029902696609497, -1.2671029567718506
       ]
     },
     {
@@ -228,6 +240,28 @@
       ],
       "scale": [0.7046631574630737, 0.704663097858429, 0.7046630382537842],
       "translation": [2.2529478073120117, 4.105057239532471, 2.35400652885437]
+    },
+    {
+      "extensions": {
+        "KHR_lights_punctual": {
+          "light": 4
+        }
+      },
+      "name": "*display light.001",
+      "rotation": [-0.7071068286895752, 0, 0, 0.7071068286895752],
+      "translation": [1.7930971384048462, 2.2108893394470215, -1.11649489402771]
+    },
+    {
+      "extensions": {
+        "KHR_lights_punctual": {
+          "light": 5
+        }
+      },
+      "name": "*display light.002",
+      "rotation": [-0.7071068286895752, 0, 0, 0.7071068286895752],
+      "translation": [
+        -1.4416673183441162, 1.3990912437438965, -1.692781925201416
+      ]
     },
     {
       "mesh": 13,
@@ -652,21 +686,10 @@
     },
     {
       "doubleSided": true,
-      "name": "Bread2",
-      "pbrMetallicRoughness": {
-        "baseColorTexture": {
-          "index": 3
-        },
-        "metallicFactor": 0,
-        "roughnessFactor": 0.5
-      }
-    },
-    {
-      "doubleSided": true,
       "name": "Plaid",
       "pbrMetallicRoughness": {
         "baseColorTexture": {
-          "index": 4
+          "index": 3
         },
         "metallicFactor": 0
       }
@@ -676,7 +699,7 @@
       "name": "Material.020",
       "pbrMetallicRoughness": {
         "baseColorTexture": {
-          "index": 5
+          "index": 4
         },
         "metallicFactor": 0
       }
@@ -1162,7 +1185,7 @@
             "COLOR_3": 154
           },
           "indices": 155,
-          "material": 19
+          "material": 13
         },
         {
           "attributes": {
@@ -1175,7 +1198,7 @@
             "COLOR_3": 162
           },
           "indices": 163,
-          "material": 20
+          "material": 19
         }
       ]
     },
@@ -1189,7 +1212,7 @@
             "TEXCOORD_0": 166
           },
           "indices": 167,
-          "material": 21
+          "material": 20
         }
       ]
     },
@@ -1203,7 +1226,7 @@
             "TEXCOORD_0": 170
           },
           "indices": 171,
-          "material": 22
+          "material": 21
         }
       ]
     },
@@ -1217,7 +1240,7 @@
             "TEXCOORD_0": 174
           },
           "indices": 171,
-          "material": 23
+          "material": 22
         }
       ]
     },
@@ -1240,7 +1263,7 @@
             "TEXCOORD_0": 181
           },
           "indices": 182,
-          "material": 24
+          "material": 23
         }
       ]
     },
@@ -1263,7 +1286,7 @@
             "TEXCOORD_0": 189
           },
           "indices": 190,
-          "material": 25
+          "material": 24
         }
       ]
     },
@@ -1286,7 +1309,7 @@
             "TEXCOORD_0": 196
           },
           "indices": 197,
-          "material": 24
+          "material": 23
         }
       ]
     },
@@ -1332,7 +1355,7 @@
             "TEXCOORD_0": 212
           },
           "indices": 213,
-          "material": 19
+          "material": 24
         }
       ]
     },
@@ -1346,7 +1369,7 @@
             "TEXCOORD_0": 216
           },
           "indices": 213,
-          "material": 19
+          "material": 24
         }
       ]
     },
@@ -1360,7 +1383,7 @@
             "TEXCOORD_0": 219
           },
           "indices": 220,
-          "material": 26
+          "material": 25
         },
         {
           "attributes": {
@@ -1645,7 +1668,7 @@
             "TEXCOORD_0": 327
           },
           "indices": 328,
-          "material": 27
+          "material": 26
         },
         {
           "attributes": {
@@ -1803,36 +1826,28 @@
     {
       "sampler": 0,
       "source": 4
-    },
-    {
-      "sampler": 0,
-      "source": 5
     }
   ],
   "images": [
     {
       "name": "Fox_head",
-      "uri": "final_model_img0.png"
+      "uri": "final_model_2_img0.png"
     },
     {
       "name": "Fox_body",
-      "uri": "final_model_img1.png"
+      "uri": "final_model_2_img1.png"
     },
     {
       "name": "Fox_tail",
-      "uri": "final_model_img2.png"
-    },
-    {
-      "name": "Bread2",
-      "uri": "final_model_img3.png"
+      "uri": "final_model_2_img2.png"
     },
     {
       "name": "Plaid",
-      "uri": "final_model_img4.png"
+      "uri": "final_model_2_img3.png"
     },
     {
       "name": "Asset 1@2x",
-      "uri": "final_model_img5.png"
+      "uri": "final_model_2_img4.png"
     }
   ],
   "accessors": [
@@ -6568,7 +6583,7 @@
   ],
   "buffers": [
     {
-      "uri": "final_model_data.bin",
+      "uri": "final_model_2_data.bin",
       "byteLength": 313576660
     }
   ]
