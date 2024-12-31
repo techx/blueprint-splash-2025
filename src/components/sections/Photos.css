@@ -9,8 +9,26 @@
     scrollbar-width: none;  /* Firefox */
 }
 
+/* Photos position */
+
 .photos {
-    width: 250%;
+    position: absolute;
+    z-index: 97;
+    top: 24vw;
+}
+
+.photo-1 {
+    position: absolute;
+    z-index: 98;
+    left: 1.75vw;
+    top: 3vw;
+}
+
+.photo-2 {
+    position: absolute;
+    z-index: 98;
+    left: 17.5vw;
+    top: 3vw;
 }
 
 /* Photos Text */
@@ -19,7 +37,7 @@
     position: absolute;
     width: 60vw;
     font-size: 7vw;
-    top: 13vw;
+    top: 12vw;
     left: 33vw;
     z-index: 94;
     font-family: "custard", sans-serif;
@@ -32,7 +50,7 @@
     position: absolute;
     width: 60vw;
     font-size: 7vw;
-    top: 60vw;
+    top: 37vw;
     left: 23vw;
     font-family: "custard", sans-serif;
     font-weight: 400;

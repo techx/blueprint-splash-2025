@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Slider from "react-slick";
 import Modal from "../Modal";
 import "./Photos.css";
@@ -35,6 +36,19 @@ const TestimonialsData: Testimonial[] = [
 ];
 
 const Photos = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [caption, setCaption] = useState<string>("");
+
+  const handleImageClick = (src: string, captionText: string) => {
+    setSelectedImage(src);
+    setCaption(captionText);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setCaption("");
+  };
+
   const setting = {
     dots: true,
     arrow: false,
@@ -75,32 +89,35 @@ const Photos = () => {
   return (
     <div>
       <Modal className="w-[85%] overflow-y-scroll no-scrollbar">
-        <div className="m-2">
+        <div className="m-4">
           <div className="overflow-hidden">
             <img
               src="/images/Photos/transparent bg.svg"
               className="w-full object-cover"
             />
           </div>
-          <h1 className="font-bold photo-title">Photos</h1>
-          <div className="overflow-x-scroll no-scrollbar">
-            <div className="w-[155%]">
+          <h1 className="font-bold photo-title">PHOTOS</h1>
+          <div className="overflow-x-scroll no-scrollbar photos">
+            <div className="w-[200%]">
               <img
-                src="/images/Photos/photo string.svg"
+                src="/images/Photos/string_with_bg_no_photos.svg"
               />
             </div>
             <div className="flex flex-row">
               <img
-                className = "w-[25%] mx-4"
+                className = "w-[15%] photo-1"
                 src="/images/Photos/1.JPG"
+                alt="Photo 1"
+                onClick={() => handleImageClick("/images/Photos/1.JPG", "A visitor from Boston Dynamics, Spot, attends a workshop alongside Blueprint ‘24 attendees.")}
               /> 
               <img
-                className = "w-[25%] mx-4"
+                className = "w-[15%] photo-2"
                 src="/images/Photos/2.JPG"
+                onClick={() => handleImageClick("/images/Photos/2.JPG", "Attendees had the chance to talk with local organizations at the organization fair.")}
               /> 
             </div>
           </div>
-          <h1 className="font-bold testimonials-title mt-4">Our Testimonials</h1>
+          <h1 className="font-bold testimonials-title">Our Testimonials</h1>
           <div className="h-full">
             <Slider {...setting}>
             {TestimonialsData.map((item: Testimonial) => {
@@ -118,7 +135,7 @@ const Photos = () => {
                         <p className="text-xl font-bold text-black/80">
                           {item.name}
                         </p>
-                        <p>{item.name}</p>
+                        <p>{item.text}</p>
                       </div>
                     </div>                  
                   </div>
@@ -129,6 +146,34 @@ const Photos = () => {
           </div>
         </div>
       </Modal>
+
+      
+      {/* Enlarged Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
+          onClick={closeModal}
+        >
+          <div
+            className="relative bg-white rounded-lg p-4 max-w-lg w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage}
+              alt="Selected"
+              className="w-full h-auto object-contain"
+            />
+            <p className="mt-4 text-center font-semibold">{caption}</p>
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-2 hover:bg-red-600"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
