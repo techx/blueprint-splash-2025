@@ -6,6 +6,7 @@ import Tracks from "./components/sections/Tracks";
 import FAQ from "./components/sections/FAQ";
 import Photos from "./components/sections/Photos";
 import Home from "./components/sections/Home";
+import Schedule from "./components/sections/Schedule";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/tracks" element={<Tracks />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/photos" element={<Photos />} />
+            <Route path="/schedule" element={<Schedule />} />
           </Routes>
         </div>
 
