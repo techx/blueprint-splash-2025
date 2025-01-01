@@ -27,7 +27,7 @@ const Modal = ({
         <div className="absolute inset-0 flex items-center justify-center">
           <div
             className={`
-              relative min-h-[70vh] max-h-[70vh] p-8 mt-8 overflow-hidden z-10
+              relative min-h-[70vh] max-h-[70vh] p-8 mt-8 z-10
               ${className}
             `}
           >

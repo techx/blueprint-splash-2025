@@ -1,12 +1,16 @@
 import Modal from "../Modal";
+import basket from "../../assets/basket.png";
+import bread from "../../assets/bread_with_mouse.png";
 
 const About = () => {
   return (
     <div>
-      <Modal className="w-[85%]">
-        <div className="flex flex-row items-center justify-center">
-          <div className="w-96 h-96">BIG FAT IMAGE</div>
-          <div className="flex flex-col min-w-[50%] max-w-[50%] max-h-[100%] h-[60vh]">
+      <Modal className="w-[100%]">
+        <div className="flex flex-row justify-center">
+          <div className="min-h-full flex items-end min-w-[40%] translate-y-[20%]">
+            <img src={basket} alt="Basket" />
+          </div>
+          <div className="flex flex-col min-w-[40%] max-w-[40%] max-h-[100%] h-[60vh]">
             <h1 className="text-4xl font-bold mb-6">Blueprint 2025</h1>
             <div className="overflow-y-auto pr-4 space-y-4">
               <p className="text-lg leading-relaxed">
@@ -84,7 +88,9 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="w-96 h-96">BIG FAT IMAGE</div>
+          <div className="min-h-full flex items-end">
+            <img className="translate-y-[10%]" src={bread} alt="bread" />
+          </div>
         </div>
       </Modal>
     </div>
