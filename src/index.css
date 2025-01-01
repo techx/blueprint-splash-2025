@@ -33,11 +33,12 @@
   background-color: theme("colors.brown");
   border-radius: 10px;
   border: 2px solid theme("colors.tan");
+  cursor: pointer;
 }
 
-/* Handle hover state of the thumb */
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #ff1493; /* Darker magenta for hover */
+  background-color: theme("colors.dark-brown");
 }
 
 .outlined {

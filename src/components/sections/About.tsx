@@ -10,7 +10,7 @@ const About = () => {
           <div className="min-h-full flex items-end min-w-[40%] translate-y-[10%]">
             <img src={basket} alt="Basket" />
           </div>
-          <div className="flex flex-col min-w-[40%] max-w-[40%] max-h-[100%] h-[60vh]">
+          <div className="flex flex-col min-w-[40%] max-w-[40%] max-h-[100%] h-[60vh] z-30">
             <h1 className="text-7xl font-bold mb-6">BLUEPRINT 2025</h1>
             <div className="overflow-y-auto pr-4 space-y-4">
               <p className="text-lg leading-relaxed">
