@@ -21,7 +21,9 @@ export default {
     colors: {
       magenta: "#B62D5D",
       "light-pink": "#f0cfd4",
-      brown: "#96422c",
+      "dark-brown": "#96422c",
+      tan: "#DABD92",
+      brown: "#B17B5E",
     },
   },
   plugins: [],
