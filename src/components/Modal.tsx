@@ -7,7 +7,7 @@ interface ModalProps {
 }
 
 const Modal = ({
-  backgroundColor = "#FDF6E7",
+  backgroundColor = "#F5EECB",
   children,
   className = "",
 }: ModalProps) => {

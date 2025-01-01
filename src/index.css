@@ -1,19 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap");
-@import url("https://use.typekit.net/zem7kzy.css");
+@import url("https://db.onlinewebfonts.com/c/1120f366a9d75e5743640482b32cfed0?family=Custard+W00+Regular");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: neulis-neue, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  /* font-family: Inconsolata, monospace; */
-  /* line-height: 1.5; */
-  /* font-weight: 400; */
+  font-family: "Neulis Neue", sans-serif;
+  line-height: 1.5;
 
-  background-color: #f0cfd4;
+  background-color: theme("colors.light-pink");
+  color: theme("colors.brown");
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,4 +21,34 @@
   text-shadow: -0.015em -0.015em 0 #1a1a1a, 0.015em -0.015em 0 #1a1a1a,
     -0.015em 0.015em 0 #1a1a1a, 0.015em 0.015em 0 #1a1a1a;
   letter-spacing: 0.008em;
+}
+
+@font-face {
+  font-family: "Neulis Neue";
+  src: url("/fonts/Neulis_Neue_Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neulis Neue";
+  src: url("/fonts/Neulis_Neue_Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neulis Neue";
+  src: url("/fonts/Neulis_Neue_Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Custard W00 Regular", sans-serif;
 }
