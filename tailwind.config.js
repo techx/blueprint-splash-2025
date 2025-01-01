@@ -2,12 +2,6 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      fontFamily: {
-        geminis: ["bd-geminis", "sans-serif"],
-        inconsolata: ["Inconsolata", "monospace"],
-      },
-    },
     screens: {
       "2xl": { max: "1535px" },
       // => @media (max-width: 1535px) { ... }
@@ -25,15 +19,9 @@ export default {
       // => @media (max-width: 639px) { ... }
     },
     colors: {
-      "dark-lavender": "#585ca2",
-      "darker-lavender": "#4e5397",
-      white: "#cbd8db",
-      purple: "#3E1A47",
-      "dark-purple": "#241a42",
-      grass: "#A0B683",
-      magenta: "#993388",
-      "neon-green": "#A7D68D",
-      "light-neon-green": "#70AA9A",
+      magenta: "#B62D5D",
+      "light-pink": "#f0cfd4",
+      brown: "#96422c",
     },
   },
   plugins: [],
