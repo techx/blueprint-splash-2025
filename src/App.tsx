@@ -7,7 +7,6 @@ import FAQ from "./components/sections/FAQ";
 import Photos from "./components/sections/Photos";
 import Schedule from "./components/sections/Schedule";
 import Home from "./components/sections/Home";
-import Schedule from "./components/sections/Schedule";
 
 function App() {
   return (
@@ -27,7 +26,6 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/tracks" element={<Tracks />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/schedule" element={<Schedule />} />
             <Route path="/photos" element={<Photos />} />
             <Route path="/schedule" element={<Schedule />} />
           </Routes>
