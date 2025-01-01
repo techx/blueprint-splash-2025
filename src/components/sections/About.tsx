@@ -1,13 +1,13 @@
 import Modal from "../Modal";
-import basket from "../../assets/basket.png";
-import bread from "../../assets/bread_with_mouse.png";
+import basket from "/images/About/basket.png";
+import bread from "/images/About/bread_with_mouse.png";
 
 const About = () => {
   return (
     <div>
       <Modal className="w-[100%]">
         <div className="flex flex-row justify-center">
-          <div className="min-h-full flex items-end min-w-[40%] translate-y-[20%]">
+          <div className="min-h-full flex items-end min-w-[40%] translate-y-[10%]">
             <img src={basket} alt="Basket" />
           </div>
           <div className="flex flex-col min-w-[40%] max-w-[40%] max-h-[100%] h-[60vh]">
@@ -82,8 +82,8 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="min-h-full flex items-end">
-            <img className="translate-y-[10%]" src={bread} alt="bread" />
+          <div className="min-h-full flex items-end -translate-x-4">
+            <img className="translate-y-[-5%]" src={bread} alt="bread" />
           </div>
         </div>
       </Modal>
