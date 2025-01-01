@@ -1,6 +1,6 @@
 import Modal from "../Modal";
-import basket from "/images/About/basket.png";
-import bread from "/images/About/bread_with_mouse.png";
+import basket from "/images/About/basket.svg";
+import bread from "/images/About/bread.svg";
 
 const About = () => {
   return (

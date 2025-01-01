@@ -19,6 +19,7 @@ export default {
       // => @media (max-width: 639px) { ... }
     },
     colors: {
+      "pale-yellow": "#F5EECB",
       magenta: "#B62D5D",
       "light-pink": "#f0cfd4",
       "dark-brown": "#96422c",
