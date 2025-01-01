@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import logo from "./assets/logo.png";
+import logo from "/images/logo.png";
 import Footer from "./components/sections/Footer";
 import About from "./components/sections/About";
 import Tracks from "./components/sections/Tracks";
 import FAQ from "./components/sections/FAQ";
 import Photos from "./components/sections/Photos";
+import Schedule from "./components/sections/Schedule";
 import Home from "./components/sections/Home";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/tracks" element={<Tracks />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/photos" element={<Photos />} />
+            <Route path="/schedule" element={<Schedule />} />
           </Routes>
         </div>
 
