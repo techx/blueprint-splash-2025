@@ -23,7 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 
-public/FINAL_ROOM.glb
-public/FINAL_ROOM_data.bin
-public/final_2.glb
-public/final_2_data.bin
+public/*.bin

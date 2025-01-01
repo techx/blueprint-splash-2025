@@ -1,6 +1,7 @@
 import React from "react";
 import {
   FaFacebook,
+  FaHeart,
   FaXTwitter,
   FaInstagram,
   FaTiktok,
@@ -18,7 +19,16 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="flex justify-between items-center p-4 bg-gray-100 w-full">
-      <div className="text-lg">Made with ♡ by the HackMIT team</div>
+      <div className="text-xl text-magenta font-medium">
+        Made with <FaHeart className="inline text-magenta mx-1 mb-1" /> by the
+        <a
+          target="_blank"
+          href="https://medium.com/hackmit-stories"
+          className="footer-link"
+        >
+          <span className="hover:text-dark-brown"> HackMIT team</span>
+        </a>
+      </div>
       <div className="flex space-x-4">
         {socialLinks.map(({ icon: Icon, url }, index) => (
           <a
@@ -26,9 +36,9 @@ const Footer: React.FC = () => {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-2xl hover:text-blue-600 transition-colors" // Increased font size
+            className="text-2xl text-magenta hover:text-dark-brown transition-colors" // Increased font size
           >
-            <Icon className="w-8 h-8" /> {/* Increased icon size */}
+            <Icon className="w-8 h-8" />
           </a>
         ))}
       </div>
