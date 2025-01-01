@@ -5,8 +5,8 @@ import About from "./components/sections/About";
 import Tracks from "./components/sections/Tracks";
 import FAQ from "./components/sections/FAQ";
 import Photos from "./components/sections/Photos";
-import Home from "./components/sections/Home";
 import Schedule from "./components/sections/Schedule";
+import Home from "./components/sections/Home";
 
 function App() {
   return (
