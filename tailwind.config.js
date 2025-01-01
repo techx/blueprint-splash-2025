@@ -25,6 +25,7 @@ export default {
       "dark-brown": "#96422c",
       tan: "#DABD92",
       brown: "#B17B5E",
+      "dark-green": "#3F5A3E",
     },
   },
   plugins: [],

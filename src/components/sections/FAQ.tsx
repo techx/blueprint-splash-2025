@@ -1,11 +1,10 @@
 import { useState } from "react";
 import Modal from "../Modal";
-import big_image from "/src/assets/faq.png";
-import OpenBullet from "/src/assets/faq_open.svg";
-import ClosedBullet from "/src/assets/faq_closed.svg";
-import './faq.css';
+import big_image from "/images/Faq/faq_asset.svg";
+import OpenBullet from "/images/Faq/faq_open.svg";
+import ClosedBullet from "/images/Faq/faq_closed.svg";
 
-const FAQ = () => {
+const Faq = () => {
   const [openIndexes, setOpenIndexes] = useState<number[]>([]);
 
   // Can ignore this section; just for updating the states
@@ -117,39 +116,23 @@ const FAQ = () => {
     <Modal className="w-[85%] p-8">
       <div className="flex">
         <div className="relative w-1/2 flex flex-col items-center">
-          <h1 className="text-5xl font-bold text-center mb-6 text-[#ab5442]">
-            FAQ
-          </h1>
+          <h1 className="text-7xl font-bold text-center pt-4">FAQ</h1>
           <img
             src={big_image}
             alt="cute characters lawl :3"
-            className="absolute -bottom-16 right-10"
-            style={{
-              height: "50vh",
-              width: "auto",
-              maxWidth: "none",
-            }}
+            className="absolute -bottom-16 right-6 max-h-[28vw] w-auto max-w-[100vh]"
           />
         </div>
 
-        <div className="w-[45%] overflow-y-auto max-h-[60vh] scrollbar-custom">
+        <div className="w-[45%] overflow-y-auto max-h-[60vh]">
           <div>
-            <h2 className="text-2xl font-bold mb-4 ml-6 text-[#99432e]">General</h2>
+            <h2 className="text-4xl font-bold mb-4 ml-6">GENERAL</h2>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               {generalQuestions.map((item, index) => (
-                <li
-                  key={index}
-                  style={{
-                    marginBottom: "10px",
-                    display: "flex",
-                    alignItems: "flex-start",
-                  }}
-                >
+                <li key={index} className="mb-[10px] flex items-start">
                   <img
                     src={
-                      openIndexes.includes(index)
-                        ? OpenBullet
-                        : ClosedBullet
+                      openIndexes.includes(index) ? OpenBullet : ClosedBullet
                     }
                     alt={openIndexes.includes(index) ? "Open" : "Closed"}
                     style={{
@@ -157,31 +140,31 @@ const FAQ = () => {
                       height: "20px",
                       marginRight: "10px",
                       cursor: "pointer",
+                      marginTop: "5px",
                     }}
                     onClick={() => toggleItem(index)}
                   />
                   <div>
                     <div
                       onClick={() => toggleItem(index)}
-                      style={{
-                        cursor: "pointer",
-                        fontWeight: "bold",
-                        marginBottom: "5px",
-                      }}
+                      className="cursor-pointer font-bold mb-[5px] text-[20px] text-dark-green"
                     >
                       {item.title}
                     </div>
                     {openIndexes.includes(index) && (
-                      <div style={{
-                        color: '#99432e',
-                        paddingRight: '10px',
-                      }}>{item.content}</div>
+                      <div
+                        style={{
+                          paddingRight: "10px",
+                        }}
+                      >
+                        {item.content}
+                      </div>
                     )}
                   </div>
                 </li>
               ))}
             </ul>
-            <h2 className="text-2xl font-bold mb-4 ml-6 text-[#99432e]">Logistics</h2>
+            <h2 className="text-4xl font-bold mb-4 ml-6">LOGISTICS</h2>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               {logisticsQuestions.map((item, index) => (
                 <li
@@ -194,9 +177,7 @@ const FAQ = () => {
                 >
                   <img
                     src={
-                      openIndexes.includes(index)
-                        ? OpenBullet
-                        : ClosedBullet
+                      openIndexes.includes(index) ? OpenBullet : ClosedBullet
                     }
                     alt={openIndexes.includes(index) ? "Open" : "Closed"}
                     style={{
@@ -204,25 +185,25 @@ const FAQ = () => {
                       height: "20px",
                       marginRight: "10px",
                       cursor: "pointer",
+                      marginTop: "5px",
                     }}
                     onClick={() => toggleItem(index)}
                   />
                   <div>
                     <div
                       onClick={() => toggleItem(index)}
-                      style={{
-                        cursor: "pointer",
-                        fontWeight: "bold",
-                        marginBottom: "5px",
-                      }}
+                      className="cursor-pointer font-bold mb-[5px] text-[20px] text-dark-green"
                     >
                       {item.title}
                     </div>
                     {openIndexes.includes(index) && (
-                      <div style={{
-                        color: '#99432e',
-                        paddingRight: '10px',
-                      }}>{item.content}</div>
+                      <div
+                        style={{
+                          paddingRight: "10px",
+                        }}
+                      >
+                        {item.content}
+                      </div>
                     )}
                   </div>
                 </li>
@@ -235,4 +216,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default Faq;
