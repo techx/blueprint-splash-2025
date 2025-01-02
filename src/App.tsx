@@ -3,7 +3,7 @@ import logo from "/images/logo.png";
 import Footer from "./components/sections/Footer";
 import About from "./components/sections/About";
 import Tracks from "./components/sections/Tracks";
-import Faq from "./components/sections/Faq";
+import Faq from "./components/sections/FAQ";
 import Photos from "./components/sections/Photos";
 import Schedule from "./components/sections/Schedule";
 import Home from "./components/sections/Home";

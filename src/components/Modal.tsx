@@ -11,39 +11,35 @@ const Modal = ({
   className = "",
 }: ModalProps) => {
   return (
-    <div className="fixed inset-0 min-h-screen w-full p-4 flex justify-center items-center">
-      <div className="relative h-full w-full mx-auto flex items-center justify-center overflow-visible">
-        {/* Close button */}
-        <a
-          href="/"
-          className="absolute top-[17%] right-[11%] w-8 h-8 z-30"
-          style={{ backgroundColor }}
-        >
-          <FaTimes className="w-full h-full text-[#D25B6A]" />
-        </a>
-
+    <div className="fixed inset-0 min-h-screen w-full flex justify-center items-center">
+      <div className="relative mx-auto flex items-center justify-center">
         {/* Content container */}
-        <div className="absolute inset-0 flex items-center justify-center overflow-visible">
-          <div
-            className={`
-              relative min-h-[70vh] max-h-[70vh] p-8 mt-8 z-10
-              ${className}
-            `}
+        <div
+          className={`
+            relative min-h-[70vh] max-h-[70vh] w-[80vw] rounded-3xl mt-8 p-8 z-40 overflow-visible
+            ${className}
+          `}
+        >
+          {/* Close button fixed inside the top-right corner of the modal */}
+          <a
+            href="/"
+            className="absolute top-4 right-4 w-8 h-8 z-50 cursor-pointer"
+            style={{ backgroundColor }}
           >
-            {children}
-          </div>
+            <FaTimes className="w-full h-full text-[#D25B6A]" />
+          </a>
+
+          {/* Modal content */}
+          {children}
         </div>
 
         {/* Background/style container */}
-        <div className="absolute inset-0 flex items-center justify-center overflow-visible">
-          <div
-            className={`
-              relative min-h-[70vh] w-[80%] rounded-3xl p-8 mt-8
-              shadow-lg z-0
-            `}
-            style={{ backgroundColor }}
-          ></div>
-        </div>
+        <div
+          className={`
+            absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 min-h-[70vh] w-[80vw] rounded-3xl mt-4 p-8 shadow-lg z-30 overflow-visible
+          `}
+          style={{ backgroundColor }}
+        ></div>
       </div>
     </div>
   );
