@@ -28,7 +28,7 @@ const Tracks = () => {
             {!isImageClicked && (
               <img
                 className="h-full w-auto"
-                src="/src/assets/boxstates/box_closed.png"
+                src="/images/Tracks/boxstates/box_closed.png"
                 alt="track"
                 onClick={handleImageClick}
               />
@@ -39,20 +39,20 @@ const Tracks = () => {
                   hoverDonutImage ? (
                     <img
                       className="h-full w-auto z-49"
-                      src={`/src/assets/boxstates/selected/donut${hoverDonutImage}.png`}
+                      src={`/images/Tracks/boxstates/selected/donut${hoverDonutImage}.png`}
                       alt="track"
                     />
                   ) : (
                     <img
                       className="h-full w-auto z-49"
-                      src={`/src/assets/boxstates/box_opened.png`}
+                      src={`/images/Tracks/boxstates/box_opened.png`}
                       alt="Full Box"
                     />
                   )
                 ) : (
                   <video
                     className="h-full w-auto z-49 bg-transparent"
-                    src={"/src/assets/boxstates/box_opening.webm"}
+                    src={"/images/Tracks/boxstates/box_opening.webm"}
                     onEnded={() => setVideoFinished(true)}
                     autoPlay
                     muted
@@ -119,10 +119,10 @@ export default Tracks;
 
 function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
   const trackMap: Record<number, string> = {
-    1: "Beginner Web Dev",
-    2: "Advanced Web Dev",
-    3: "Game Development",
-    4: "Hardware",
+    1: "BEGINNER WEB DEV",
+    2: "ADVANCED WEB DEV",
+    3: "GAME DEVELOPMENT",
+    4: "HARDWARE",
   };
 
   const descriptionMap: Record<number, string> = {
@@ -329,41 +329,58 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
   return (
     <Modal backgroundColor="#DABD93">
       <div className="relative w-full flex flex-row items-center justify-center h-[60vh] p-0">
-        <img
-          className="h-auto w-[20vw] -top-20 left-12 absolute"
-          src={`/src/assets/boxstates/opened/donut${track}.png`}
-          alt="track"
-          onClick={() => setTrack(0)}
-        />
-        <div className="w-full flex flex-col gap-8 text-3xl justify-end pb-16 min-w-[30%] max-w-[30%] max-h-[100%] h-[60vh]">
+        <div className="w-full flex flex-col gap-2 text-2xl md:text-xl justify-end pb-6 min-w-[25%] max-w-[25%] max-h-[100%] h-[60vh] mt-8">
           <div
-            className="bg-[#b27b5d] p-4 text-white rounded-l-3xl shadow-lg ease-linear transition hover:bg-[#405a3f] aria-selected:bg-[#405a3f]"
+            className={`bg-brown p-3 text-pale-yellow rounded-l-3xl shadow-lg ease-linear transition hover:bg-dark-green cursor-pointer aria-selected:bg-dark-green z-40 ${
+              title == 0 ? "-ml-4" : ""
+            }`}
             aria-selected={title == 0}
             onClick={() => setTitle(0)}
           >
             Description
           </div>
           <div
-            className="bg-[#b27b5d] p-4 text-white rounded-l-3xl shadow-lg ease-linear transition hover:bg-[#405a3f] aria-selected:bg-[#405a3f]"
+            className={`bg-brown p-3 text-pale-yellow rounded-l-3xl shadow-lg ease-linear transition hover:bg-dark-green cursor-pointer aria-selected:bg-dark-green z-40 ${
+              title == 1 ? "-ml-4" : ""
+            }`}
             aria-selected={title == 1}
             onClick={() => setTitle(1)}
           >
             Guiding Questions
           </div>
           <div
-            className="bg-[#b27b5d] p-4 text-white rounded-l-3xl shadow-lg ease-linear transition hover:bg-[#405a3f] aria-selected:bg-[#405a3f]"
+            className={`bg-brown p-3 text-pale-yellow rounded-l-3xl shadow-lg ease-linear transition hover:bg-dark-green cursor-pointer aria-selected:bg-dark-green z-40 ${
+              title == 2 ? "-ml-4" : ""
+            }`}
             onClick={() => setTitle(2)}
             aria-selected={title == 2}
           >
             Resources
           </div>
         </div>
+        <img
+          className="h-auto w-[20vw] -top-[7.5%] left-[2%] absolute z-30"
+          src={`/images/Tracks/boxstates/opened/donut${track}.png`}
+          alt="track"
+          onClick={() => setTrack(0)}
+        />
 
-        <div
-          className="relative w-[60%] h-[100%] rounded-3xl mt-8 shadow-lg p-8"
-          style={{ backgroundColor: "#F6EBCB" }}
-        >
-          <div className="w-[75%] h-[100%] scroll-auto overflow-y-auto">
+        <div className="bg-pale-yellow relative w-[68%] h-[100%] rounded-3xl mt-8 shadow-lg p-8">
+          <div className="absolute top-4 right-4 flex gap-1 z-50">
+            <img
+              src="/images/Tracks/left_arrow.svg"
+              alt="Previous"
+              className="w-8 h-8 cursor-pointer bg-pale-yellow rounded-full p-1"
+              onClick={() => setTrack(track === 1 ? 4 : track - 1)}
+            />
+            <img
+              src="/images/Tracks/right_arrow.svg"
+              alt="Next"
+              className="w-8 h-8 cursor-pointer bg-pale-yellow rounded-full p-1"
+              onClick={() => setTrack(track === 4 ? 1 : track + 1)}
+            />
+          </div>
+          <div className="w-[88%] h-[100%] scroll-auto overflow-y-auto relative z-40 pr-2">
             <h1 className="text-6xl font-bold mb-6">{trackMap[track]}</h1>
             <p className="text-lg leading-relaxed">
               {title == 0 && descriptionMap[track]}
@@ -392,13 +409,13 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
                           style={{ width: "24px", height: "24px" }}
                         >
                           <img
-                            src="/src/assets/checkbox.svg"
+                            src="/images/Tracks/checkbox.svg"
                             alt="box"
                             className="absolute top-0 left-0 w-full h-full"
                           />
                           {checkedItems[index] && (
                             <img
-                              src="/src/assets/check.svg"
+                              src="/images/Tracks/check.svg"
                               alt="Checked"
                               className="absolute top-0 left-0 w-full h-full"
                             />
@@ -432,13 +449,13 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
                       style={{ width: "24px", height: "24px" }}
                     >
                       <img
-                        src="/src/assets/checkbox.svg"
+                        src="/images/Tracks/checkbox.svg"
                         alt="box"
                         className="absolute top-0 left-0 w-full h-full"
                       />
                       {checkedResources[index] && (
                         <img
-                          src="/src/assets/check.svg"
+                          src="/images/Tracks/check.svg"
                           alt="Checked"
                           className="absolute top-0 left-0 w-full h-full"
                         />
@@ -460,8 +477,8 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
             )}
           </div>
           <img
-            className="h-auto w-[30vw] -bottom-8 -right-[20%] absolute"
-            src={`/src/assets/boxstates/opened/foxdonut${track}.png`}
+            className="h-[52vh] w-[28vw] object-contain -bottom-8 -right-[28%] absolute z-30"
+            src={`/images/Tracks/boxstates/opened/foxdonut${track}.png`}
             alt="track"
           />
         </div>
