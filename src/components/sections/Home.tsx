@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -23,7 +23,6 @@ interface HoverableModelProps {
 }
 
 const HoverableModel = ({ onObjectClick, ...props }: HoverableModelProps) => {
-  const meshRef = useRef<Mesh>(null);
   const { scene, gl } = useThree();
 
   const handlePointerOver = (e: any) => {
@@ -75,7 +74,6 @@ const HoverableModel = ({ onObjectClick, ...props }: HoverableModelProps) => {
   return (
     <Model
       {...props}
-      ref={meshRef}
       onPointerOver={handlePointerOver}
       onPointerOut={handlePointerOut}
       onClick={handleClick}
