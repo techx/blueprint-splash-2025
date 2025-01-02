@@ -12,22 +12,19 @@ const Tracks = () => {
   };
   return (
     <div>
-      <Modal backgroundColor="#DABD93" className="w-[85%]">
+      <Modal backgroundColor="#DABD93">
         <div className="flex space-x-5 flex-row items-center justify-center h-[60vh] p-0">
           <div className="flex flex-col justify-center min-w-[30%] max-w-[30%] max-h-[100%] h-[60vh]">
-            <h1 className="text-4xl font-bold mb-6">TRACKS</h1>
-            <p className="text-lg leading-relaxed">
+            <h1 className="text-7xl font-bold mb-6">TRACKS</h1>
+            <p className="text-lg leading-relaxed overflow-y-auto max-h-[38vh]">
               Blueprint offers a variety of workshops that fall into various
               tracks. These workshops are meant to develop skills that may be
-              useful for your hackathon project. Explore this year’s tracks by
+              useful for your hackathon project. Explore this year's tracks by
               clicking the box to the right!
             </p>
           </div>
 
-          <div
-            className="relative w-[60%] h-[100%] flex items-center justify-center rounded-3xl p- mt-8 shadow-lg"
-            style={{ backgroundColor: "#F6EBCB" }}
-          >
+          <div className="relative w-[60%] h-[100%] flex items-center justify-center rounded-3xl p- mt-8 shadow-lg bg-pale-yellow">
             {!isImageClicked && (
               <img
                 className="h-full w-auto"
@@ -63,50 +60,49 @@ const Tracks = () => {
                 )}
                 {videoFinished && (
                   <>
-                    <div
-                      className="relative top-[-74%] left-[23%] h-[24%] w-[28%] z-50 opacity-0 hover:opacity-100 transition ease-linear flex items-center justify-center text-wrap text-white"
-                      style={{
-                        backgroundColor: "transparent",
-                      }}
-                      onClick={() => setTrack(1)}
-                      onMouseEnter={() => setHoverDonutImage(1)}
-                      onMouseLeave={() => setHoverDonutImage(0)}
-                    >
-                      Beginner Web Dev
-                    </div>
-                    <div
-                      className="relative top-[-98%] left-[52%] h-[24%] w-[28%] z-50 opacity-0 hover:opacity-100 transition ease-linear flex items-center justify-center text-wrap text-white"
-                      style={{
-                        backgroundColor: "transparent",
-                      }}
-                      onClick={() => setTrack(4)}
-                      onMouseEnter={() => setHoverDonutImage(4)}
-                      onMouseLeave={() => setHoverDonutImage(0)}
-                    >
-                      Hardware
-                    </div>
-                    <div
-                      className="relative top-[-96%] left-[21%] h-[24%] w-[28%] z-50 opacity-0 hover:opacity-100 transition ease-linear flex items-center justify-center text-wrap text-white"
-                      style={{
-                        backgroundColor: "transparent",
-                      }}
-                      onClick={() => setTrack(2)}
-                      onMouseEnter={() => setHoverDonutImage(2)}
-                      onMouseLeave={() => setHoverDonutImage(0)}
-                    >
-                      Advanced Web Dev
-                    </div>
-                    <div
-                      className="relative top-[-121%] left-[50%] h-[24%] w-[28%] z-50 opacity-0 hover:opacity-100 transition ease-linear flex items-center justify-center text-wrap text-white"
-                      style={{
-                        backgroundColor: "transparent",
-                      }}
-                      onClick={() => setTrack(3)}
-                      onMouseEnter={() => setHoverDonutImage(3)}
-                      onMouseLeave={() => setHoverDonutImage(0)}
-                    >
-                      Game Development
-                    </div>
+                    {[
+                      {
+                        top: "-74%",
+                        left: "24%",
+                        track: 1,
+                        text: "Beginner Web Dev",
+                      },
+                      {
+                        top: "-97%",
+                        left: "51%",
+                        track: 4,
+                        text: "Hardware",
+                      },
+                      {
+                        top: "-96%",
+                        left: "22%",
+                        track: 2,
+                        text: "Advanced Web Dev",
+                      },
+                      {
+                        top: "-122%",
+                        left: "52%",
+                        track: 3,
+                        text: "Game Development",
+                      },
+                    ].map(({ top, left, track: trackNum, text }) => (
+                      <div
+                        key={trackNum}
+                        className="relative h-[24%] w-[24%] z-50 opacity-0 hover:opacity-100 transition ease-linear flex items-center justify-center text-wrap text-white cursor-pointer"
+                        style={{
+                          backgroundColor: "transparent",
+                          top,
+                          left,
+                        }}
+                        onClick={() => setTrack(trackNum)}
+                        onMouseEnter={() => setHoverDonutImage(trackNum)}
+                        onMouseLeave={() => setHoverDonutImage(0)}
+                      >
+                        <div className="text-pale-yellow text-center">
+                          {text}
+                        </div>
+                      </div>
+                    ))}
                   </>
                 )}
               </div>
@@ -331,7 +327,7 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
   const [checkedResources, setCheckedResources] = useState<boolean[]>([]);
 
   return (
-    <Modal backgroundColor="#DABD93" className="w-[85%]">
+    <Modal backgroundColor="#DABD93">
       <div className="relative w-full flex flex-row items-center justify-center h-[60vh] p-0">
         <img
           className="h-auto w-[20vw] -top-20 left-12 absolute"
@@ -378,25 +374,32 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
                   <br />
                   <div className="space-y-4 mt-4">
                     {questionMap[track].map((question, index) => (
-                      <div 
-                        key={index} 
+                      <div
+                        key={index}
                         className="flex items-start gap-3 cursor-pointer"
                         onClick={() => {
-                          const newCheckedItems = [...(checkedItems.length ? checkedItems : Array(questionMap[track].length).fill(false))];
+                          const newCheckedItems = [
+                            ...(checkedItems.length
+                              ? checkedItems
+                              : Array(questionMap[track].length).fill(false)),
+                          ];
                           newCheckedItems[index] = !newCheckedItems[index];
                           setCheckedItems(newCheckedItems);
                         }}
                       >
-                        <div className="relative flex-shrink-0" style={{ width: '24px', height: '24px' }}>
-                          <img 
+                        <div
+                          className="relative flex-shrink-0"
+                          style={{ width: "24px", height: "24px" }}
+                        >
+                          <img
                             src="/src/assets/checkbox.svg"
                             alt="box"
                             className="absolute top-0 left-0 w-full h-full"
                           />
                           {checkedItems[index] && (
-                            <img 
-                              src="/src/assets/check.svg" 
-                              alt="Checked" 
+                            <img
+                              src="/src/assets/check.svg"
+                              alt="Checked"
                               className="absolute top-0 left-0 w-full h-full"
                             />
                           )}
@@ -411,31 +414,41 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
             {title == 2 && (
               <div className="space-y-4">
                 {resourceMap[track].map((resource, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="flex items-start gap-3 cursor-pointer"
                     onClick={() => {
-                      const newCheckedResources = [...(checkedResources.length ? checkedResources : Array(resourceMap[track].length).fill(false))];
+                      const newCheckedResources = [
+                        ...(checkedResources.length
+                          ? checkedResources
+                          : Array(resourceMap[track].length).fill(false)),
+                      ];
                       newCheckedResources[index] = !newCheckedResources[index];
                       setCheckedResources(newCheckedResources);
                     }}
                   >
-                    <div className="relative flex-shrink-0" style={{ width: '24px', height: '24px' }}>
-                      <img 
+                    <div
+                      className="relative flex-shrink-0"
+                      style={{ width: "24px", height: "24px" }}
+                    >
+                      <img
                         src="/src/assets/checkbox.svg"
                         alt="box"
                         className="absolute top-0 left-0 w-full h-full"
                       />
                       {checkedResources[index] && (
-                        <img 
-                          src="/src/assets/check.svg" 
-                          alt="Checked" 
+                        <img
+                          src="/src/assets/check.svg"
+                          alt="Checked"
                           className="absolute top-0 left-0 w-full h-full"
                         />
                       )}
                     </div>
                     <div>
-                      <a href={resource.url} className="text-lg leading-relaxed">
+                      <a
+                        href={resource.url}
+                        className="text-lg leading-relaxed"
+                      >
                         {resource.heading}
                       </a>
                       <br />
