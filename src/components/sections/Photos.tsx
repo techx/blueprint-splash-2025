@@ -162,15 +162,17 @@ const Photos = () => {
       <Modal>
         <div className="flex flex-col items-center">
           <div className="min-w-[90%] -translate-y-[5%]">
-            <img
-              src="/images/Photos/transparent bg.svg"
-              className="w-full object-cover"
-            />
+            <div className="relative w-full h-[80vh]">
+              <img
+                src="/images/Photos/transparent_bg.svg"
+                className="absolute top-0 left-0 w-full object-cover"
+              />
+            </div>
             <h1 className="text-7xl font-bold absolute top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               PHOTOS
             </h1>
           </div>
-          <div className="overflow-x-auto overflow-hidden w-[100%] h-[28vh] no-scrollbar absolute top-[78%] md:top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="overflow-x-auto overflow-hidden w-[100%] h-[28vh] no-scrollbar absolute top-[78%] md:top-[70%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="relative">
               <div className="w-[300vh] md:w-[200vh] mx-auto absolute z-40">
                 <img
@@ -215,12 +217,12 @@ const Photos = () => {
               <div className="fixed inset-0 flex items-center justify-center">
                 <div
                   ref={modalContainerRef}
-                  className="bg-polaroid h-[80vh] w-[60vw] rounded-xl p-8 shadow-2xl overflow-hidden flex flex-col z-60 relative"
+                  className="bg-polaroid h-[80vh] md:h-[50vh] w-[60vw] rounded-xl p-8 shadow-2xl overflow-hidden flex flex-col z-60 relative"
                 >
                   <div className="flex flex-col h-full">
                     <div className="flex-1 overflow-hidden">
                       <img
-                        src={`/images/Photos/${imageData[openImageIndex].src}`}
+                        src={`/src/assets/${imageData[openImageIndex].src}`}
                         alt={`Large View ${openImageIndex + 1}`}
                         className="w-full object-contain"
                       />
