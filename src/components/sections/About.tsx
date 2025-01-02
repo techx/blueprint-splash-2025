@@ -6,11 +6,15 @@ const About = () => {
   return (
     <div>
       <Modal className="w-[100%]">
-        <div className="flex flex-row justify-center">
-          <div className="min-h-full flex items-end min-w-[40%] translate-y-[10%]">
-            <img src={basket} alt="Basket" />
+        <div className="flex flex-row justify-center relative">
+          <div className="flex items-center justify-center w-[30%] relative">
+            <img
+              src={basket}
+              alt="Basket"
+              className="absolute max-w-[32vw] transform translate-x-[-20%] translate-y-[24%] object-contain"
+            />
           </div>
-          <div className="flex flex-col min-w-[40%] max-w-[40%] max-h-[100%] h-[60vh] z-30">
+          <div className="flex flex-col min-w-[60%] max-w-[60%] max-h-[100%] h-[60vh] z-30">
             <h1 className="text-7xl font-bold mb-6">BLUEPRINT 2025</h1>
             <div className="overflow-y-auto pr-4 space-y-4">
               <p className="text-lg leading-relaxed">
@@ -82,8 +86,12 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="min-h-full flex items-end -translate-x-4">
-            <img className="translate-y-[-5%]" src={bread} alt="bread" />
+          <div className="flex items-center justify-center w-[10%] relative">
+            <img
+              src={bread}
+              alt="bread"
+              className="absolute max-w-[18vw] transform translate-x-[10%] translate-y-[70%] object-contain"
+            />
           </div>
         </div>
       </Modal>
