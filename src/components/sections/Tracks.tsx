@@ -387,11 +387,20 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
                           setCheckedItems(newCheckedItems);
                         }}
                       >
-                        <img 
-                          src={checkedItems[index] ? "/src/assets/check.svg" : "/src/assets/checkbox.svg"} 
-                          alt={checkedItems[index] ? "Checked" : "Unchecked"}
-                          className="w-6 h-6 mt-1"
-                        />
+                        <div className="relative flex-shrink-0" style={{ width: '24px', height: '24px' }}>
+                          <img 
+                            src="/src/assets/checkbox.svg"
+                            alt="box"
+                            className="absolute top-0 left-0 w-full h-full"
+                          />
+                          {checkedItems[index] && (
+                            <img 
+                              src="/src/assets/check.svg" 
+                              alt="Checked" 
+                              className="absolute top-0 left-0 w-full h-full"
+                            />
+                          )}
+                        </div>
                         <span className="text-lg">{question}</span>
                       </div>
                     ))}
@@ -411,11 +420,20 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
                       setCheckedResources(newCheckedResources);
                     }}
                   >
-                    <img 
-                      src={checkedResources[index] ? "/src/assets/check.svg" : "/src/assets/checkbox.svg"} 
-                      alt={checkedResources[index] ? "Checked" : "Unchecked"}
-                      className="w-6 h-6 mt-1"
-                    />
+                    <div className="relative flex-shrink-0" style={{ width: '24px', height: '24px' }}>
+                      <img 
+                        src="/src/assets/checkbox.svg"
+                        alt="box"
+                        className="absolute top-0 left-0 w-full h-full"
+                      />
+                      {checkedResources[index] && (
+                        <img 
+                          src="/src/assets/check.svg" 
+                          alt="Checked" 
+                          className="absolute top-0 left-0 w-full h-full"
+                        />
+                      )}
+                    </div>
                     <div>
                       <a href={resource.url} className="text-lg leading-relaxed">
                         {resource.heading}
