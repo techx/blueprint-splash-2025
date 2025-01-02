@@ -371,13 +371,13 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
               src="/images/Tracks/left_arrow.svg"
               alt="Previous"
               className="w-8 h-8 cursor-pointer bg-pale-yellow rounded-full p-1"
-              onClick={() => setTrack(track === 1 ? 4 : track - 1)}
+              onClick={() => {setTrack(track === 1 ? 4 : track - 1); setCheckedItems([]); setCheckedResources([]); }}
             />
             <img
               src="/images/Tracks/right_arrow.svg"
               alt="Next"
               className="w-8 h-8 cursor-pointer bg-pale-yellow rounded-full p-1"
-              onClick={() => setTrack(track === 4 ? 1 : track + 1)}
+              onClick={() => {setTrack(track === 4 ? 1 : track + 1); setCheckedItems([]); setCheckedResources([]); }}
             />
           </div>
           <div className="w-[88%] h-[100%] scroll-auto overflow-y-auto relative z-40 pr-2">
