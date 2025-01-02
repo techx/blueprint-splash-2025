@@ -114,7 +114,7 @@ const Tracks = () => {
           </div>
         </div>
       </Modal>
-      {track && <TrackModal track={track} setTrack={setTrack} />}
+      {track !== 0 && <TrackModal track={track} setTrack={setTrack} />}
     </div>
   );
 };
