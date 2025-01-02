@@ -327,6 +327,9 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
   };
 
   const [title, setTitle] = useState(0);
+  const [checkedItems, setCheckedItems] = useState<boolean[]>([]);
+  const [checkedResources, setCheckedResources] = useState<boolean[]>([]);
+
   return (
     <Modal backgroundColor="#DABD93" className="w-[85%]">
       <div className="relative w-full flex flex-row items-center justify-center h-[60vh] p-0">
@@ -373,29 +376,74 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
                   This track might be right for you if you're intrigued by these
                   questions:
                   <br />
-                  {questionMap[track].map((question, index) => (
-                    <span key={index}>
-                      {question}
-                      <br />
-                    </span>
-                  ))}
+                  <div className="space-y-4 mt-4">
+                    {questionMap[track].map((question, index) => (
+                      <div 
+                        key={index} 
+                        className="flex items-start gap-3 cursor-pointer"
+                        onClick={() => {
+                          const newCheckedItems = [...(checkedItems.length ? checkedItems : Array(questionMap[track].length).fill(false))];
+                          newCheckedItems[index] = !newCheckedItems[index];
+                          setCheckedItems(newCheckedItems);
+                        }}
+                      >
+                        <div className="relative flex-shrink-0" style={{ width: '24px', height: '24px' }}>
+                          <img 
+                            src="/src/assets/checkbox.svg"
+                            alt="box"
+                            className="absolute top-0 left-0 w-full h-full"
+                          />
+                          {checkedItems[index] && (
+                            <img 
+                              src="/src/assets/check.svg" 
+                              alt="Checked" 
+                              className="absolute top-0 left-0 w-full h-full"
+                            />
+                          )}
+                        </div>
+                        <span className="text-lg">{question}</span>
+                      </div>
+                    ))}
+                  </div>
                 </>
               )}
             </p>
             {title == 2 && (
-              <ol>
+              <div className="space-y-4">
                 {resourceMap[track].map((resource, index) => (
-                  <li key={index}>
-                    <a href={resource.url} className="text-lg leading-relaxed">
-                      {resource.heading}
-                    </a>
-                    <br />
-                    {resource.desc}
-                    <br />
-                    <br />
-                  </li>
+                  <div 
+                    key={index}
+                    className="flex items-start gap-3 cursor-pointer"
+                    onClick={() => {
+                      const newCheckedResources = [...(checkedResources.length ? checkedResources : Array(resourceMap[track].length).fill(false))];
+                      newCheckedResources[index] = !newCheckedResources[index];
+                      setCheckedResources(newCheckedResources);
+                    }}
+                  >
+                    <div className="relative flex-shrink-0" style={{ width: '24px', height: '24px' }}>
+                      <img 
+                        src="/src/assets/checkbox.svg"
+                        alt="box"
+                        className="absolute top-0 left-0 w-full h-full"
+                      />
+                      {checkedResources[index] && (
+                        <img 
+                          src="/src/assets/check.svg" 
+                          alt="Checked" 
+                          className="absolute top-0 left-0 w-full h-full"
+                        />
+                      )}
+                    </div>
+                    <div>
+                      <a href={resource.url} className="text-lg leading-relaxed">
+                        {resource.heading}
+                      </a>
+                      <br />
+                      {resource.desc}
+                    </div>
+                  </div>
                 ))}
-              </ol>
+              </div>
             )}
           </div>
           <img
