@@ -26,6 +26,8 @@ export default {
       tan: "#DABD92",
       brown: "#B17B5E",
       "dark-green": "#3F5A3E",
+      polaroid: "#F6F4F4",
+      black: "#000000",
     },
   },
   plugins: [],

@@ -5,16 +5,16 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .photos {
-    width: 250%;
+  width: 250%;
 }
 
 /* Photos Text */
-
+/* 
 .photo-title {
     position: absolute;
     width: 60vw;
@@ -25,20 +25,20 @@
     font-weight: 400;
     font-style: normal;
     color: #96422C;
-}
+} */
 
 .testimonials-title {
-    position: absolute;
-    width: 60vw;
-    font-size: 7vw;
-    top: 60vw;
-    left: 23vw;
-    font-family: "custard", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #96422C;
+  position: absolute;
+  width: 60vw;
+  font-size: 7vw;
+  top: 60vw;
+  left: 23vw;
+  font-family: "custard", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #96422c;
 }
 
-.modal-container{
-    background-color: white;
+.modal-container {
+  background-color: white;
 }
