@@ -159,7 +159,7 @@ const Photos = () => {
 
   return (
     <div>
-      <Modal className="w-[85%]">
+      <Modal>
         <div className="flex flex-col items-center">
           <div className="min-w-[90%] -translate-y-[5%]">
             <img

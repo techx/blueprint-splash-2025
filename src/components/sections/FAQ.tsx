@@ -113,7 +113,7 @@ const Faq = () => {
   };
 
   return (
-    <Modal className="w-[85%] p-8">
+    <Modal className="p-8">
       <div className="flex">
         <div className="relative w-1/2 flex flex-col items-center">
           <h1 className="text-7xl font-bold text-center pt-4">FAQ</h1>
