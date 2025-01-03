@@ -77,14 +77,14 @@ const Schedule = () => {
                 <div className="w-1/2 text-right">{date}</div>
               </div>
             ))} */}
-          <h2 className="text-4xl font-bold mt-3 mb-3">Learnathon [3/1]</h2>
+          <h2 className="text-4xl font-bold mt-3 mb-3">LEARNATHON [3/1]</h2>
           {Object.entries(learnathon_events).map(([time, event], index) => (
             <div key={index} className="flex flex-row space-x-4">
               <div className="w-1/2">{event}</div>
               <div className="w-1/2 text-right">{time}</div>
             </div>
           ))}
-          <h2 className="text-4xl font-bold mt-3 mb-3">Hackathon [3/2]</h2>
+          <h2 className="text-4xl font-bold mt-3 mb-3">HACKATHON [3/2]</h2>
           {Object.entries(hackathon_events).map(([time, event], index) => (
             <div key={index} className="flex flex-row space-x-4">
               <div className="w-1/2">{event}</div>
