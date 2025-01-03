@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 const TracksMobile = () => {
-  const [expandedTrack, setExpandedTrack] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<
-    "description" | "questions" | "resources"
-  >("description");
+  const [expandedTracks, setExpandedTracks] = useState<number[]>([]);
+  const [activeTabs, setActiveTabs] = useState<
+    Record<number, "description" | "questions" | "resources">
+  >({});
 
   const tracks = [
     {
@@ -117,6 +117,31 @@ const TracksMobile = () => {
     },
   ];
 
+  const toggleTrack = (id: number) => {
+    setExpandedTracks((prev) => {
+      const newExpandedTracks = prev.includes(id)
+        ? prev.filter((trackId) => trackId !== id)
+        : [...prev, id];
+
+      // If track is being closed, remove its active tab state
+      if (!newExpandedTracks.includes(id)) {
+        setActiveTabs((prev) => {
+          const newTabs = { ...prev };
+          delete newTabs[id];
+          return newTabs;
+        });
+      } else if (!prev.includes(id)) {
+        // If track is being opened, set default tab
+        setActiveTabs((prev) => ({
+          ...prev,
+          [id]: "description",
+        }));
+      }
+
+      return newExpandedTracks;
+    });
+  };
+
   return (
     <div className="px-4 py-6">
       <div className="flex flex-col md:flex-row items-center justify-between mb-8 bg-magenta/20 rounded-3xl p-6">
@@ -141,28 +166,41 @@ const TracksMobile = () => {
         {tracks.map((track) => (
           <div key={track.id} className="border rounded-lg overflow-hidden">
             <button
-              className="w-full p-4 text-left bg-pale-yellow hover:bg-pale-yellow/80 font-semibold text-xl flex justify-between items-center"
-              onClick={() =>
-                setExpandedTrack(expandedTrack === track.id ? null : track.id)
-              }
+              className={`w-full p-4 text-left text-pale-yellow font-semibold text-xl flex justify-between items-center ${
+                expandedTracks.includes(track.id) ? "bg-dark-green" : "bg-brown"
+              }`}
+              onClick={() => toggleTrack(track.id)}
             >
-              {track.name}
-              <span>{expandedTrack === track.id ? "−" : "+"}</span>
+              <div className="flex items-center">
+                <img
+                  src="/images/Tracks/dropdown_mobile.svg"
+                  alt="dropdown"
+                  className={`w-4 h-4 mr-2 transform transition-transform ${
+                    expandedTracks.includes(track.id) ? "rotate-90" : ""
+                  }`}
+                />
+                <h2 className="text-4xl">{track.name}</h2>
+              </div>
             </button>
 
-            {expandedTrack === track.id && (
-              <div className="p-4 bg-white">
-                <div className="flex gap-4 mb-4">
+            {expandedTracks.includes(track.id) && (
+              <div className="p-4">
+                <div className="flex gap-1 mb-4 overflow-x-auto">
                   {(["description", "questions", "resources"] as const).map(
                     (tab) => (
                       <button
                         key={tab}
-                        className={`px-4 py-2 rounded ${
-                          activeTab === tab
+                        className={`px-3 py-1.5 rounded whitespace-nowrap font-bold text-lg ${
+                          activeTabs[track.id] === tab
                             ? "bg-brown text-pale-yellow"
-                            : "bg-gray-200"
+                            : ""
                         }`}
-                        onClick={() => setActiveTab(tab)}
+                        onClick={() =>
+                          setActiveTabs((prev) => ({
+                            ...prev,
+                            [track.id]: tab,
+                          }))
+                        }
                       >
                         {tab.charAt(0).toUpperCase() + tab.slice(1)}
                       </button>
@@ -170,31 +208,37 @@ const TracksMobile = () => {
                   )}
                 </div>
 
-                {activeTab === "description" && (
+                {activeTabs[track.id] === "description" && (
                   <p className="text-lg">{track.description}</p>
                 )}
 
-                {activeTab === "questions" && (
-                  <ul className="list-disc pl-6 space-y-2">
-                    {track.questions.map((question, idx) => (
-                      <li key={idx} className="text-lg">
-                        {question}
-                      </li>
-                    ))}
-                  </ul>
+                {activeTabs[track.id] === "questions" && (
+                  <>
+                    <p className="text-lg mb-4">
+                      This track might be right for you if you're intrigued by
+                      these questions:
+                    </p>
+                    <ul className="list-disc pl-6 space-y-2">
+                      {track.questions.map((question, idx) => (
+                        <li key={idx} className="text-lg">
+                          {question}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
                 )}
 
-                {activeTab === "resources" && (
+                {activeTabs[track.id] === "resources" && (
                   <div className="space-y-4">
                     {track.resources.map((resource, idx) => (
                       <div key={idx}>
                         <a
                           href={resource.url}
-                          className="text-lg font-semibold text-blue-600 hover:underline"
+                          className="text-lg font-semibold underline"
                         >
                           {resource.heading}
                         </a>
-                        <p className="text-gray-600">{resource.desc}</p>
+                        <p>{resource.desc}</p>
                       </div>
                     ))}
                   </div>
