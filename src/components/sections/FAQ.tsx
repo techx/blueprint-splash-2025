@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Modal from "../Modal";
 import big_image from "/images/Faq/faq_asset.svg";
-import OpenBullet from "/images/Faq/faq_open.svg";
 import ClosedBullet from "/images/Faq/faq_closed.svg";
 
 const Faq = () => {
   const [openIndexes, setOpenIndexes] = useState<number[]>([]);
 
   // Can ignore this section; just for updating the states
-  const toggleItem = (index: number) => {
-    setOpenIndexes((prevIndexes) => updateIndexes(prevIndexes, index));
+  const toggleItem = (index: number, section: "general" | "logistics") => {
+    const adjustedIndex = section === "logistics" ? index + 7 : index;
+    setOpenIndexes((prevIndexes) => updateIndexes(prevIndexes, adjustedIndex));
   };
 
   // Define all the FAQ questions here; doesn't need fixing
@@ -87,17 +87,17 @@ const Faq = () => {
     {
       title: "Can I volunteer to judge or mentor?",
       content:
-        "If you’re in college or beyond, we will consider your application! We will update this link when our application for judging/mentoring opens. ",
+        "If you're in college or beyond, we will consider your application! We will update this link when our application for judging/mentoring opens. ",
     },
     {
       title: "Are you doing travel reimbursements?",
       content:
-        "Due to logistical & financial restrictions, we cannot reimburse lodging expenses for this event, and in order to provide our attendees with the best possible experience, we will not be able to accommodate virtual hackers. Travel subsidies may be available through the support of Hack Club’s Gas Fund, but these details are still tentative and we cannot guarantee travel support.",
+        "Due to logistical & financial restrictions, we cannot reimburse lodging expenses for this event, and in order to provide our attendees with the best possible experience, we will not be able to accommodate virtual hackers. Travel subsidies may be available through the support of Hack Club's Gas Fund, but these details are still tentative and we cannot guarantee travel support.",
     },
     {
       title: "Will you be hosting students?",
       content:
-        "Unfortunately, MIT administration has strict requirements regarding hosting minors on campus, so we would not be able to match you with a host through the Blueprint team. If you aren’t able to commute to Blueprint and happen to know an MIT student or a student in the Boston area, you could try reaching out to them personally to see if they are able to host you!",
+        "Unfortunately, MIT administration has strict requirements regarding hosting minors on campus, so we would not be able to match you with a host through the Blueprint team. If you aren't able to commute to Blueprint and happen to know an MIT student or a student in the Boston area, you could try reaching out to them personally to see if they are able to host you!",
     },
   ];
   const generalQuestions = faqItems.slice(0, 7);
@@ -131,31 +131,39 @@ const Faq = () => {
               {generalQuestions.map((item, index) => (
                 <li key={index} className="mb-[10px] flex items-start">
                   <img
-                    src={
-                      openIndexes.includes(index) ? OpenBullet : ClosedBullet
-                    }
-                    alt={openIndexes.includes(index) ? "Open" : "Closed"}
+                    src={ClosedBullet}
+                    alt="dropdown"
                     style={{
                       width: "20px",
                       height: "20px",
                       marginRight: "10px",
                       cursor: "pointer",
                       marginTop: "5px",
+                      transition: "transform 0.3s ease",
+                      transform: openIndexes.includes(index)
+                        ? "rotate(90deg)"
+                        : "rotate(0deg)",
                     }}
-                    onClick={() => toggleItem(index)}
+                    onClick={() => toggleItem(index, "general")}
                   />
-                  <div>
+                  <div className="w-full">
                     <div
-                      onClick={() => toggleItem(index)}
+                      onClick={() => toggleItem(index, "general")}
                       className="cursor-pointer font-bold mb-[5px] text-xl text-dark-green"
                     >
                       {item.title}
                     </div>
-                    {openIndexes.includes(index) && (
+                    <div
+                      className="overflow-hidden transition-all duration-300 ease-in-out"
+                      style={{
+                        maxHeight: openIndexes.includes(index) ? "500px" : "0",
+                        opacity: openIndexes.includes(index) ? 1 : 0,
+                      }}
+                    >
                       <div className="text-lg leading-relaxed pr-[10px]">
                         {item.content}
                       </div>
-                    )}
+                    </div>
                   </div>
                 </li>
               ))}
@@ -172,31 +180,41 @@ const Faq = () => {
                   }}
                 >
                   <img
-                    src={
-                      openIndexes.includes(index) ? OpenBullet : ClosedBullet
-                    }
-                    alt={openIndexes.includes(index) ? "Open" : "Closed"}
+                    src={ClosedBullet}
+                    alt="dropdown"
                     style={{
                       width: "20px",
                       height: "20px",
                       marginRight: "10px",
                       cursor: "pointer",
                       marginTop: "5px",
+                      transition: "transform 0.3s ease",
+                      transform: openIndexes.includes(index + 7)
+                        ? "rotate(90deg)"
+                        : "rotate(0deg)",
                     }}
-                    onClick={() => toggleItem(index)}
+                    onClick={() => toggleItem(index, "logistics")}
                   />
-                  <div>
+                  <div className="w-full">
                     <div
-                      onClick={() => toggleItem(index)}
+                      onClick={() => toggleItem(index, "logistics")}
                       className="cursor-pointer font-bold mb-[5px] text-[20px] text-dark-green"
                     >
                       {item.title}
                     </div>
-                    {openIndexes.includes(index) && (
+                    <div
+                      className="overflow-hidden transition-all duration-300 ease-in-out"
+                      style={{
+                        maxHeight: openIndexes.includes(index + 7)
+                          ? "500px"
+                          : "0",
+                        opacity: openIndexes.includes(index + 7) ? 1 : 0,
+                      }}
+                    >
                       <div className="text-lg leading-relaxed pr-[10px]">
                         {item.content}
                       </div>
-                    )}
+                    </div>
                   </div>
                 </li>
               ))}
