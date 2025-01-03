@@ -8,7 +8,12 @@ import { useGraph } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
 
-export function Model({ onPointerOver, onPointerOut, onClick, ...props }) {
+export function Model({
+  onPointerOver = (e) => {},
+  onPointerOut = (e) => {},
+  onClick = (e) => {},
+  ...props
+}) {
   const { scene } = useGLTF("/final_model_2.gltf");
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
