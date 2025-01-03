@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import Modal from "../Modal";
-import "./Photos.css";
 
 // interface Testimonial {
 //   id: number;
@@ -172,7 +171,7 @@ const Photos = () => {
               PHOTOS
             </h1>
           </div>
-          <div className="overflow-x-auto overflow-hidden w-[100%] h-[28vh] no-scrollbar absolute top-[78%] md:top-[70%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="overflow-x-auto overflow-hidden w-[100%] h-[28vh] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden absolute top-[78%] md:top-[70%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="relative">
               <div className="w-[300vh] md:w-[200vh] mx-auto absolute z-40">
                 <img
