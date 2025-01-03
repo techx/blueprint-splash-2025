@@ -15,7 +15,7 @@ const HomeMobile: React.FC = () => {
         <group position={[0, -1.2, 0]}>
           <Model scale={0.5} />
         </group>
-        <OrbitControls minDistance={10} maxDistance={24} />
+        <OrbitControls minDistance={13} maxDistance={20} />
       </Canvas>
     </div>
   );
