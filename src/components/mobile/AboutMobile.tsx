@@ -2,7 +2,7 @@ import basket from "/images/About/basket.svg";
 
 const AboutMobile = () => {
   return (
-    <section id="about">
+    <section id="About">
       <div className="px-6 py-4 space-y-6">
         <h1 className="text-5xl font-bold text-center">BLUEPRINT 2025</h1>
 
