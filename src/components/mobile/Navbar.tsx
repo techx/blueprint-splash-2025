@@ -62,8 +62,8 @@ const Navbar = () => {
         </div>
         <div
           className={`${
-            navOpen ? "visible opacity-1" : "invisible opacity-0"
-          } z-[9999] duration-200 absolute right-0 top-9 bg-white py-2 rounded-lg shadow-md overflow-hidden min-w-40`}
+            navOpen ? "visible opacity-100" : "invisible opacity-0"
+          } z-[9999] duration-200 absolute right-0 top-9 bg-light-pink py-2 rounded-lg shadow-md overflow-hidden min-w-40`}
         >
           <ul>
             {sections.map((section, i) => (
