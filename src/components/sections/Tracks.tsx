@@ -27,7 +27,7 @@ const Tracks = () => {
           <div className="relative w-[60%] h-[100%] flex items-center justify-center rounded-3xl p- mt-8 shadow-lg bg-pale-yellow">
             {!isImageClicked && (
               <img
-                className="h-full w-auto"
+                className="h-full w-auto object-contain"
                 src="/images/Tracks/boxstates/box_closed.png"
                 alt="track"
                 onClick={handleImageClick}
@@ -38,13 +38,13 @@ const Tracks = () => {
                 {videoFinished ? (
                   hoverDonutImage ? (
                     <img
-                      className="h-full w-auto z-49"
+                      className="h-full w-auto object-contain z-49"
                       src={`/images/Tracks/boxstates/selected/donut${hoverDonutImage}.png`}
                       alt="track"
                     />
                   ) : (
                     <img
-                      className="h-full w-auto z-49"
+                      className="h-full w-auto object-contain z-49"
                       src={`/images/Tracks/boxstates/box_opened.png`}
                       alt="Full Box"
                     />
@@ -98,7 +98,7 @@ const Tracks = () => {
                         onMouseEnter={() => setHoverDonutImage(trackNum)}
                         onMouseLeave={() => setHoverDonutImage(0)}
                       >
-                        <div className="text-pale-yellow text-center">
+                        <div className="text-pale-yellow text-center md:text-[10px]">
                           {text}
                         </div>
                       </div>
@@ -371,13 +371,21 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
               src="/images/Tracks/left_arrow.svg"
               alt="Previous"
               className="w-8 h-8 cursor-pointer bg-pale-yellow rounded-full p-1"
-              onClick={() => {setTrack(track === 1 ? 4 : track - 1); setCheckedItems([]); setCheckedResources([]); }}
+              onClick={() => {
+                setTrack(track === 1 ? 4 : track - 1);
+                setCheckedItems([]);
+                setCheckedResources([]);
+              }}
             />
             <img
               src="/images/Tracks/right_arrow.svg"
               alt="Next"
               className="w-8 h-8 cursor-pointer bg-pale-yellow rounded-full p-1"
-              onClick={() => {setTrack(track === 4 ? 1 : track + 1); setCheckedItems([]); setCheckedResources([]); }}
+              onClick={() => {
+                setTrack(track === 4 ? 1 : track + 1);
+                setCheckedItems([]);
+                setCheckedResources([]);
+              }}
             />
           </div>
           <div className="w-[88%] h-[100%] scroll-auto overflow-y-auto relative z-40 pr-2">

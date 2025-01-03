@@ -147,16 +147,12 @@ const Faq = () => {
                   <div>
                     <div
                       onClick={() => toggleItem(index)}
-                      className="cursor-pointer font-bold mb-[5px] text-[20px] text-dark-green"
+                      className="cursor-pointer font-bold mb-[5px] text-xl text-dark-green"
                     >
                       {item.title}
                     </div>
                     {openIndexes.includes(index) && (
-                      <div
-                        style={{
-                          paddingRight: "10px",
-                        }}
-                      >
+                      <div className="text-lg leading-relaxed pr-[10px]">
                         {item.content}
                       </div>
                     )}
@@ -197,11 +193,7 @@ const Faq = () => {
                       {item.title}
                     </div>
                     {openIndexes.includes(index) && (
-                      <div
-                        style={{
-                          paddingRight: "10px",
-                        }}
-                      >
+                      <div className="text-lg leading-relaxed pr-[10px]">
                         {item.content}
                       </div>
                     )}
