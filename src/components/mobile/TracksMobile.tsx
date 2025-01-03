@@ -143,112 +143,117 @@ const TracksMobile = () => {
   };
 
   return (
-    <div className="px-4 py-6">
-      <div className="flex flex-col md:flex-row items-center justify-between mb-8 bg-magenta/20 rounded-3xl p-6">
-        <div className="w-full md:w-1/2 mb-6 md:mb-0">
-          <h1 className="text-5xl font-bold mb-4">TRACKS</h1>
-          <p className="text-lg leading-relaxed">
-            Blueprint offers a variety of workshops that fall into various
-            tracks. These workshops are meant to develop skills that may be
-            useful for your hackathon project. Explore this year's tracks below!
-          </p>
+    <section id="Tracks">
+      <div className="px-4 py-6">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-8 bg-magenta/20 rounded-3xl p-6">
+          <div className="w-full md:w-1/2 mb-6 md:mb-0">
+            <h1 className="text-5xl font-bold mb-4">TRACKS</h1>
+            <p className="text-lg leading-relaxed">
+              Blueprint offers a variety of workshops that fall into various
+              tracks. These workshops are meant to develop skills that may be
+              useful for your hackathon project. Explore this year's tracks
+              below!
+            </p>
+          </div>
+          <div className="w-1/2 flex justify-center">
+            <img
+              src="/images/Tracks/boxstates/box_opened.png"
+              alt="Tracks"
+              className="w-full object-contain"
+            />
+          </div>
         </div>
-        <div className="w-1/2 flex justify-center">
-          <img
-            src="/images/Tracks/boxstates/box_opened.png"
-            alt="Tracks"
-            className="w-full object-contain"
-          />
-        </div>
-      </div>
 
-      <div className="space-y-4">
-        {tracks.map((track) => (
-          <div key={track.id} className="border rounded-lg overflow-hidden">
-            <button
-              className={`w-full p-4 text-left text-pale-yellow font-semibold text-xl flex justify-between items-center ${
-                expandedTracks.includes(track.id) ? "bg-dark-green" : "bg-brown"
-              }`}
-              onClick={() => toggleTrack(track.id)}
-            >
-              <div className="flex items-center">
-                <img
-                  src="/images/Tracks/dropdown_mobile.svg"
-                  alt="dropdown"
-                  className={`w-4 h-4 mr-2 transform transition-transform ${
-                    expandedTracks.includes(track.id) ? "rotate-90" : ""
-                  }`}
-                />
-                <h2 className="text-4xl">{track.name}</h2>
-              </div>
-            </button>
+        <div className="space-y-4">
+          {tracks.map((track) => (
+            <div key={track.id} className="border rounded-lg overflow-hidden">
+              <button
+                className={`w-full p-4 text-left text-pale-yellow font-semibold text-xl flex justify-between items-center ${
+                  expandedTracks.includes(track.id)
+                    ? "bg-dark-green"
+                    : "bg-brown"
+                }`}
+                onClick={() => toggleTrack(track.id)}
+              >
+                <div className="flex items-center">
+                  <img
+                    src="/images/Tracks/dropdown_mobile.svg"
+                    alt="dropdown"
+                    className={`w-4 h-4 mr-2 transform transition-transform ${
+                      expandedTracks.includes(track.id) ? "rotate-90" : ""
+                    }`}
+                  />
+                  <h2 className="text-4xl">{track.name}</h2>
+                </div>
+              </button>
 
-            {expandedTracks.includes(track.id) && (
-              <div className="p-4">
-                <div className="flex gap-1 mb-4 overflow-x-auto">
-                  {(["description", "questions", "resources"] as const).map(
-                    (tab) => (
-                      <button
-                        key={tab}
-                        className={`px-3 py-1.5 rounded whitespace-nowrap font-bold text-lg ${
-                          activeTabs[track.id] === tab
-                            ? "bg-brown text-pale-yellow"
-                            : ""
-                        }`}
-                        onClick={() =>
-                          setActiveTabs((prev) => ({
-                            ...prev,
-                            [track.id]: tab,
-                          }))
-                        }
-                      >
-                        {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                      </button>
-                    )
+              {expandedTracks.includes(track.id) && (
+                <div className="p-4">
+                  <div className="flex gap-1 mb-4 overflow-x-auto">
+                    {(["description", "questions", "resources"] as const).map(
+                      (tab) => (
+                        <button
+                          key={tab}
+                          className={`px-3 py-1.5 rounded whitespace-nowrap font-bold text-lg ${
+                            activeTabs[track.id] === tab
+                              ? "bg-brown text-pale-yellow"
+                              : ""
+                          }`}
+                          onClick={() =>
+                            setActiveTabs((prev) => ({
+                              ...prev,
+                              [track.id]: tab,
+                            }))
+                          }
+                        >
+                          {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                        </button>
+                      )
+                    )}
+                  </div>
+
+                  {activeTabs[track.id] === "description" && (
+                    <p className="text-lg">{track.description}</p>
+                  )}
+
+                  {activeTabs[track.id] === "questions" && (
+                    <>
+                      <p className="text-lg mb-4">
+                        This track might be right for you if you're intrigued by
+                        these questions:
+                      </p>
+                      <ul className="list-disc pl-6 space-y-2">
+                        {track.questions.map((question, idx) => (
+                          <li key={idx} className="text-lg">
+                            {question}
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+
+                  {activeTabs[track.id] === "resources" && (
+                    <div className="space-y-4">
+                      {track.resources.map((resource, idx) => (
+                        <div key={idx}>
+                          <a
+                            href={resource.url}
+                            className="text-lg font-semibold underline"
+                          >
+                            {resource.heading}
+                          </a>
+                          <p>{resource.desc}</p>
+                        </div>
+                      ))}
+                    </div>
                   )}
                 </div>
-
-                {activeTabs[track.id] === "description" && (
-                  <p className="text-lg">{track.description}</p>
-                )}
-
-                {activeTabs[track.id] === "questions" && (
-                  <>
-                    <p className="text-lg mb-4">
-                      This track might be right for you if you're intrigued by
-                      these questions:
-                    </p>
-                    <ul className="list-disc pl-6 space-y-2">
-                      {track.questions.map((question, idx) => (
-                        <li key={idx} className="text-lg">
-                          {question}
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                )}
-
-                {activeTabs[track.id] === "resources" && (
-                  <div className="space-y-4">
-                    {track.resources.map((resource, idx) => (
-                      <div key={idx}>
-                        <a
-                          href={resource.url}
-                          className="text-lg font-semibold underline"
-                        >
-                          {resource.heading}
-                        </a>
-                        <p>{resource.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        ))}
+              )}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

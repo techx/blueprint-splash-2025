@@ -112,83 +112,85 @@ const FaqMobile = () => {
   };
 
   return (
-    <div className="px-4 py-6">
-      <h1 className="text-5xl font-bold text-center mb-8">FAQ</h1>
+    <section id="FAQ">
+      <div className="px-4 py-6">
+        <h1 className="text-5xl font-bold text-center mb-8">FAQ</h1>
 
-      <div className="mb-8 bg-magenta/20 rounded-3xl p-6">
-        <div className="mb-8">
-          <h2 className="text-4xl font-bold mb-4">GENERAL</h2>
-          <ul className="space-y-4">
-            {generalQuestions.map((item, index) => (
-              <li key={index} className="flex items-start">
-                <img
-                  src={ClosedBullet}
-                  alt="Toggle"
-                  className={`w-5 h-5 mt-1.5 mr-3 cursor-pointer transition-transform duration-300 ${
-                    openIndexes.includes(index) ? "rotate-90" : ""
-                  }`}
-                  onClick={() => toggleItem(index, "general")}
-                />
-                <div className="flex-1">
-                  <div
+        <div className="mb-8 bg-magenta/20 rounded-3xl p-6">
+          <div className="mb-8">
+            <h2 className="text-4xl font-bold mb-4">GENERAL</h2>
+            <ul className="space-y-4">
+              {generalQuestions.map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <img
+                    src={ClosedBullet}
+                    alt="Toggle"
+                    className={`w-5 h-5 mt-1.5 mr-3 cursor-pointer transition-transform duration-300 ${
+                      openIndexes.includes(index) ? "rotate-90" : ""
+                    }`}
                     onClick={() => toggleItem(index, "general")}
-                    className="cursor-pointer font-bold mb-2 text-lg text-dark-green"
-                  >
-                    {item.title}
-                  </div>
-                  {openIndexes.includes(index) && (
-                    <div className="text-base leading-relaxed">
-                      {item.content}
+                  />
+                  <div className="flex-1">
+                    <div
+                      onClick={() => toggleItem(index, "general")}
+                      className="cursor-pointer font-bold mb-2 text-lg text-dark-green"
+                    >
+                      {item.title}
                     </div>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+                    {openIndexes.includes(index) && (
+                      <div className="text-base leading-relaxed">
+                        {item.content}
+                      </div>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <div className="mb-8">
-          <h2 className="text-4xl font-bold mb-4">LOGISTICS</h2>
-          <ul className="space-y-4">
-            {logisticsQuestions.map((item, index) => (
-              <li key={index} className="flex items-start">
-                <img
-                  src={ClosedBullet}
-                  alt="Toggle"
-                  className={`w-5 h-5 mt-1.5 mr-3 cursor-pointer transition-transform duration-300 ${
-                    openIndexes.includes(index + generalQuestions.length)
-                      ? "rotate-90"
-                      : ""
-                  }`}
-                  onClick={() => toggleItem(index, "logistics")}
-                />
-                <div className="flex-1">
-                  <div
+          <div className="mb-8">
+            <h2 className="text-4xl font-bold mb-4">LOGISTICS</h2>
+            <ul className="space-y-4">
+              {logisticsQuestions.map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <img
+                    src={ClosedBullet}
+                    alt="Toggle"
+                    className={`w-5 h-5 mt-1.5 mr-3 cursor-pointer transition-transform duration-300 ${
+                      openIndexes.includes(index + generalQuestions.length)
+                        ? "rotate-90"
+                        : ""
+                    }`}
                     onClick={() => toggleItem(index, "logistics")}
-                    className="cursor-pointer font-bold mb-2 text-lg text-dark-green"
-                  >
-                    {item.title}
-                  </div>
-                  {openIndexes.includes(index + generalQuestions.length) && (
-                    <div className="text-base leading-relaxed">
-                      {item.content}
+                  />
+                  <div className="flex-1">
+                    <div
+                      onClick={() => toggleItem(index, "logistics")}
+                      className="cursor-pointer font-bold mb-2 text-lg text-dark-green"
+                    >
+                      {item.title}
                     </div>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
+                    {openIndexes.includes(index + generalQuestions.length) && (
+                      <div className="text-base leading-relaxed">
+                        {item.content}
+                      </div>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex justify-center">
+          <img
+            src="/images/Faq/faq_asset.svg"
+            alt="FAQ illustration"
+            className="w-84 h-auto"
+          />
         </div>
       </div>
-
-      <div className="flex justify-center">
-        <img
-          src="/images/Faq/faq_asset.svg"
-          alt="FAQ illustration"
-          className="w-84 h-auto"
-        />
-      </div>
-    </div>
+    </section>
   );
 };
 
