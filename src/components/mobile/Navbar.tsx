@@ -1,13 +1,13 @@
 import { useState } from "react";
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
-  const sections = ["about", "tracks", "schedule", "photos", "faq"];
+  const sections = ["About", "Tracks", "Schedule", "Photos", "FAQ"];
 
   return (
-    <nav className="flex items-center justify-between px-4 py-6 text-xl">
+    <nav className="flex items-center justify-between px-4 mx-4 mt-6 mb-2 text-xl bg-magenta/20 rounded-3xl">
       <div>
         <a href="/">
-          <img src="images/Main/Logo.svg" className="w-12" />
+          <img src="/images/logo.png" className="w-12" />
         </a>
       </div>
       <div className="relative">
@@ -30,9 +30,33 @@ const Navbar = () => {
               strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <line x1="4" y1="6" x2="20" y2="6"></line>
-              <line x1="4" y1="12" x2="20" y2="12"></line>
-              <line x1="4" y1="18" x2="20" y2="18"></line>
+              <line
+                x1="4"
+                y1="6"
+                x2="20"
+                y2="6"
+                stroke="currentColor"
+                strokeWidth="3"
+                className="stroke-magenta"
+              ></line>
+              <line
+                x1="4"
+                y1="12"
+                x2="20"
+                y2="12"
+                stroke="currentColor"
+                strokeWidth="3"
+                className="stroke-magenta"
+              ></line>
+              <line
+                x1="4"
+                y1="18"
+                x2="20"
+                y2="18"
+                stroke="currentColor"
+                strokeWidth="3"
+                className="stroke-magenta"
+              ></line>
             </svg>
           </button>
         </div>
@@ -46,7 +70,7 @@ const Navbar = () => {
               <li key={i}>
                 <a
                   href={`#${section}`}
-                  className="px-4 py-1 hover:bg-gray-100 block"
+                  className="px-4 py-1 hover:bg-polaroid/40 block text-magenta"
                 >
                   {section}
                 </a>
@@ -57,7 +81,7 @@ const Navbar = () => {
                 href="https://plume.hackmit.org"
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-1 hover:bg-gray-100 block"
+                className="px-4 py-1 hover:bg-polaroid/40 block text-magenta"
               >
                 Apply
               </a>
