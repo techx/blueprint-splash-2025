@@ -20,11 +20,9 @@ const AboutMobile = () => {
           <img src={basket} alt="Basket" className="w-[80%] object-contain" />
         </div>
 
-        <div className="space-y-4">
-          <h2 className="text-5xl font-bold text-center">
-            BP WEEK (2/26-2/27)
-          </h2>
-          <ul className="list-disc mx-4 pl-4 space-y-2">
+        <div className="space-y-4 pl-4">
+          <h2 className="text-4xl font-bold">BP WEEK (2/26-2/27)</h2>
+          <ul className="list-disc mx-4 space-y-2">
             <li>Join the hacker community!</li>
             <li>Meet fellow hackers through team formation and mini-events</li>
             <li>
@@ -36,9 +34,9 @@ const AboutMobile = () => {
           </ul>
         </div>
 
-        <div className="space-y-4">
-          <h2 className="text-5xl font-bold text-center">LEARNATHON (3/1)</h2>
-          <ul className="list-disc mx-4 pl-4 space-y-2">
+        <div className="space-y-4 pl-4">
+          <h2 className="text-4xl font-bold">LEARNATHON (3/1)</h2>
+          <ul className="list-disc mx-4 space-y-2">
             <li>
               Participate in hands-on workshops taught by MIT students and
               industry professionals on programming fundamentals, web
@@ -55,9 +53,9 @@ const AboutMobile = () => {
           </ul>
         </div>
 
-        <div className="space-y-4">
-          <h2 className="text-5xl font-bold text-center">HACKATHON (3/2)</h2>
-          <ul className="list-disc mx-4 pl-4 space-y-2">
+        <div className="space-y-4 pl-4">
+          <h2 className="text-4xl font-bold">HACKATHON (3/2)</h2>
+          <ul className="list-disc mx-4 space-y-2">
             <li>Put your new skills to practice!</li>
             <li>
               Form a team and experience the challenge and reward of building a
