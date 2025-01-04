@@ -32,7 +32,7 @@ const ScheduleMobile = () => {
   // TODO: fix for ipad size, maybe distinguish md and smaller screen sizes
   return (
     <section id="Schedule">
-      <div className="relative">
+      <div className="relative h-[100vh]">
         <img
           src="/images/Schedule/sched_mobile.svg"
           alt="Schedule Background"

@@ -22,7 +22,7 @@ function DesktopLayout() {
         <a
           href="https://plume.hackmit.org"
           target="_blank"
-          className="bg-magenta text-light-pink px-4 py-2 rounded-lg font-medium text-xl hover:opacity-90 transition-opacity"
+          className="bg-magenta text-light-pink px-4 py-2 rounded-lg font-medium text-xl hover:opacity-80 transition-opacity"
         >
           Apply
         </a>
