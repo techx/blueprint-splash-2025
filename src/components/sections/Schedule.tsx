@@ -60,11 +60,15 @@ const Schedule = () => {
           </div>
         )}
 
+        <p className="text-sm text-pale-yellow font-bold mt-3 mb-3 text-center absolute top-[37%] left-[50%] -translate-x-[50%] -translate-y-[50]%">
+          Subject to change!
+        </p>
+
         <div
-          className={`overflow-y-scroll justify-center ${
+          className={`overflow-y-scroll justify-center  ${
             isMobile
               ? "text-black max-h-[65vh]"
-              : "text-pale-yellow max-h-[32vh] md:max-h-[26vh] pr-4 w-[58vh] md:w-[40vw] absolute top-[62%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
+              : "text-pale-yellow max-h-[30vh] md:max-h-[26vh] pr-4 mt-3 w-[56vh] md:w-[40vw] absolute top-[64%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
           }`}
         >
           {isMobile && (
@@ -77,7 +81,7 @@ const Schedule = () => {
                 <div className="w-1/2 text-right">{date}</div>
               </div>
             ))} */}
-          <h2 className="text-4xl font-bold mt-3 mb-3">LEARNATHON [3/1]</h2>
+          <h2 className="text-4xl font-bold mb-3">LEARNATHON [3/1]</h2>
           {Object.entries(learnathon_events).map(([time, event], index) => (
             <div key={index} className="flex flex-row space-x-4">
               <div className="w-1/2">{event}</div>
