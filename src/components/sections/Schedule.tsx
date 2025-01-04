@@ -60,11 +60,13 @@ const Schedule = () => {
           </div>
         )}
 
+        <p className="text-sm text-pale-yellow font-bold mt-3 mb-3 text-center absolute top-[37%] left-[50%] -translate-x-[50%] -translate-y-[50]%">subject to change!</p>
+
         <div
-          className={`overflow-y-scroll justify-center ${
+          className={`overflow-y-scroll justify-center  ${
             isMobile
               ? "text-black max-h-[65vh]"
-              : "text-pale-yellow max-h-[32vh] md:max-h-[26vh] pr-4 w-[58vh] md:w-[40vw] absolute top-[62%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
+              : "text-pale-yellow max-h-[31vh] md:max-h-[26vh] pr-4 w-[56vh] md:w-[40vw] absolute top-[62%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
           }`}
         >
           {isMobile && (
