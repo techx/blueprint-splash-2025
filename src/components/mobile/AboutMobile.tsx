@@ -10,9 +10,9 @@ const AboutMobile = () => {
           Blueprint is a weekend-long learnathon and hackathon for high school
           students hosted at MIT. Blueprint is open to all skill levels, from
           first-time coders to veteran hackers! Over the course of Blueprint,
-          you'll learn coding skills from MIT students, form a team, and work on
+          you’ll learn coding skills from MIT students, form a team, and work on
           a cool computer science project with the support of our mentors! After
-          Blueprint, you'll not only have a project under your belt, but have
+          Blueprint, you’ll not only have a project under your belt, but have
           the tools to do so much more.
         </p>
 
@@ -21,7 +21,7 @@ const AboutMobile = () => {
         </div>
 
         <div className="space-y-4 pl-4">
-          <h2 className="text-4xl font-bold">BP WEEK (2/26-2/27)</h2>
+          <h2 className="text-4xl font-bold">BP WEEK (2/26-2/28)</h2>
           <ul className="list-disc mx-4 space-y-2">
             <li>Join the hacker community!</li>
             <li>Meet fellow hackers through team formation and mini-events</li>
@@ -49,7 +49,17 @@ const AboutMobile = () => {
               Engage with our educational organization partners at the
               organization fair!
             </li>
-            <li>Eager to get started? Check out StartHacking.org!</li>
+            <li>
+              Eager to get started? Check out{" "}
+              <a
+                href="https://starthacking.org"
+                target="_blank"
+                className="underline hover:text-brown transition-colors"
+              >
+                StartHacking.org
+              </a>
+              !
+            </li>
           </ul>
         </div>
 
