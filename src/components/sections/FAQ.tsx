@@ -1,9 +1,229 @@
-const FAQ = () => {
+import { useState } from "react";
+import Modal from "../Modal";
+import big_image from "/images/Faq/faq_asset.svg";
+import ClosedBullet from "/images/Faq/faq_closed.svg";
+
+const Faq = () => {
+  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
+
+  // Can ignore this section; just for updating the states
+  const toggleItem = (index: number, section: "general" | "logistics") => {
+    const adjustedIndex = section === "logistics" ? index + 7 : index;
+    setOpenIndexes((prevIndexes) => updateIndexes(prevIndexes, adjustedIndex));
+  };
+
+  // Define all the FAQ questions here; doesn't need fixing
+  const faqItems = [
+    {
+      title: "What is a learnathon?",
+      content:
+        "A day of learning skills in computer science! You will have the opportunity to attend a day of workshops in your chosen track: web dev (beginner, advanced), game dev (beginner, advanced), or hardware. See the tracks section above for more info. Beyond track-specific workshops, we'll also have auxiliary workshops, tech talks, an organization fair, and more.",
+    },
+    {
+      title: "What is a hackathon?",
+      content:
+        "A chance to build an amazing computer science project! Students who attend the learnathon will apply their newly-acquired skills to create something they can call their own. Websites and mobile apps are common hacks, but you can build anything. We encourage you to think outside the box!",
+    },
+    {
+      title: "How much experience do I need to attend?",
+      content:
+        "Zero computer science, coding, or hacking experience is needed! We encourage students of all skill levels to apply—many of our workshops assume you have no experience and will help build your coding abilities from the ground up.",
+    },
+    {
+      title: "Do I need to attend both the learnathon and hackathon?",
+      content:
+        "No, you can attend either one or both days! However, only participants who participate in track workshops during the learnathon or submit a project for the hackathon will be eligible for swag.",
+    },
+    {
+      title: "How will teams work? What if I don't have a team?",
+      content:
+        "During our hackathon, you'll have the opportunity to create a project in a team of up to 4 students. Don't worry if you don't have a team now—we'll have team formation and ideation sessions, so there'll be plenty of time to meet new people!",
+    },
+    {
+      title: "Why is there an application?",
+      content:
+        "While we want to open Blueprint to everyone, having an application allows us to provide a better event experience with respect to planning and logistics. However, you do not need any experience to apply. We're looking for people who are passionate about learning and creating!",
+    },
+    {
+      title: "I have more questions!",
+      content:
+        "Feel free to reach out to us at blueprint@hackmit.org for any questions, concerns, or just to say hi :)",
+    },
+    {
+      title: "When is Blueprint?",
+      content:
+        "Blueprint will be from March 1 to March 2. There will be a learnathon on Saturday March 1, and a hackathon on Sunday March 2.",
+    },
+    {
+      title: "Where is Blueprint?",
+      content:
+        "The Saturday learnathon will take place at MIT's Stata Center (32 Vassar St, Cambridge, MA 02139). The Sunday hackathon will take place at the MIT Media Lab (75 Amherst St, Cambridge, MA 02139).",
+    },
+    {
+      title: "Will Blueprint be fully in-person?",
+      content:
+        "Yes – the events over the weekend will have no virtual component. However, we may potentially host virtual events during Blueprint week, which will be open to everyone.",
+    },
+    {
+      title: "Am I eligible to attend?",
+      content:
+        "If you're a high school student, we invite you to apply - no coding experience required! Blueprint will teach you all you need to know to compete in your first hackathon, so beginners are more than welcome!",
+    },
+    {
+      title: "Does Blueprint cost money?",
+      content:
+        "Admission is free and includes mentors, workshops, swag, resources, and an unforgettable experience! ",
+    },
+    {
+      title: "What will I eat?",
+      content:
+        "We will provide breakfast and lunch for Saturday's learnathon, and breakfast, lunch, and dinner for Sunday's hackathon for free! We also have options for those with dietary restrictions. There will also be a snack bar on Sunday :)",
+    },
+    {
+      title: "When is the application deadline?",
+      content:
+        "Applications are due February 3rd, 11:59pm Eastern Time (please note the timezone!). No extensions will be granted unless there are special circumstances; in that case, please email blueprint@hackmit.org.",
+    },
+    {
+      title: "Can I volunteer to judge or mentor?",
+      content:
+        "If you're in college or beyond, we will consider your application! We will update this link when our application for judging/mentoring opens. ",
+    },
+    {
+      title: "Are you doing travel reimbursements?",
+      content:
+        "Due to logistical & financial restrictions, we cannot reimburse lodging expenses for this event, and in order to provide our attendees with the best possible experience, we will not be able to accommodate virtual hackers. Travel subsidies may be available through the support of Hack Club's Gas Fund, but these details are still tentative and we cannot guarantee travel support.",
+    },
+    {
+      title: "Will you be hosting students?",
+      content:
+        "Unfortunately, MIT administration has strict requirements regarding hosting minors on campus, so we would not be able to match you with a host through the Blueprint team. If you aren't able to commute to Blueprint and happen to know an MIT student or a student in the Boston area, you could try reaching out to them personally to see if they are able to host you!",
+    },
+  ];
+  const generalQuestions = faqItems.slice(0, 7);
+  const logisticsQuestions = faqItems.slice(7);
+
+  // Can ignore this section; just for updating the states
+  const updateIndexes = (prevIndexes: number[], index: number): number[] => {
+    const updatedIndexes = prevIndexes.includes(index)
+      ? prevIndexes.filter((i) => i !== index)
+      : [...prevIndexes, index];
+    console.log("Updated openIndexes:", updatedIndexes);
+    return updatedIndexes;
+  };
+
   return (
-    <div>
-      FAQ
-    </div>
+    <Modal className="p-8">
+      <div className="flex">
+        <div className="relative w-1/2 flex flex-col items-center">
+          <h1 className="text-7xl font-bold text-center pt-4">FAQ</h1>
+          <img
+            src={big_image}
+            alt="cute characters lawl :3"
+            className="absolute -bottom-16 right-6 max-h-[28vw] w-auto max-w-[100vh]"
+          />
+        </div>
+
+        <div className="w-[45%] overflow-y-auto max-h-[60vh]">
+          <div>
+            <h2 className="text-4xl font-bold mb-4 ml-6">GENERAL</h2>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              {generalQuestions.map((item, index) => (
+                <li key={index} className="mb-[10px] flex items-start">
+                  <img
+                    src={ClosedBullet}
+                    alt="dropdown"
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      marginRight: "10px",
+                      cursor: "pointer",
+                      marginTop: "5px",
+                      transition: "transform 0.3s ease",
+                      transform: openIndexes.includes(index)
+                        ? "rotate(90deg)"
+                        : "rotate(0deg)",
+                    }}
+                    onClick={() => toggleItem(index, "general")}
+                  />
+                  <div className="w-full">
+                    <div
+                      onClick={() => toggleItem(index, "general")}
+                      className="cursor-pointer font-bold mb-[5px] text-xl text-dark-green"
+                    >
+                      {item.title}
+                    </div>
+                    <div
+                      className="overflow-hidden transition-all duration-300 ease-in-out"
+                      style={{
+                        maxHeight: openIndexes.includes(index) ? "500px" : "0",
+                        opacity: openIndexes.includes(index) ? 1 : 0,
+                      }}
+                    >
+                      <div className="text-lg leading-relaxed pr-[10px]">
+                        {item.content}
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <h2 className="text-4xl font-bold mb-4 ml-6">LOGISTICS</h2>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              {logisticsQuestions.map((item, index) => (
+                <li
+                  key={index}
+                  style={{
+                    marginBottom: "10px",
+                    display: "flex",
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <img
+                    src={ClosedBullet}
+                    alt="dropdown"
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      marginRight: "10px",
+                      cursor: "pointer",
+                      marginTop: "5px",
+                      transition: "transform 0.3s ease",
+                      transform: openIndexes.includes(index + 7)
+                        ? "rotate(90deg)"
+                        : "rotate(0deg)",
+                    }}
+                    onClick={() => toggleItem(index, "logistics")}
+                  />
+                  <div className="w-full">
+                    <div
+                      onClick={() => toggleItem(index, "logistics")}
+                      className="cursor-pointer font-bold mb-[5px] text-[20px] text-dark-green"
+                    >
+                      {item.title}
+                    </div>
+                    <div
+                      className="overflow-hidden transition-all duration-300 ease-in-out"
+                      style={{
+                        maxHeight: openIndexes.includes(index + 7)
+                          ? "500px"
+                          : "0",
+                        opacity: openIndexes.includes(index + 7) ? 1 : 0,
+                      }}
+                    >
+                      <div className="text-lg leading-relaxed pr-[10px]">
+                        {item.content}
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Modal>
   );
 };
 
-export default FAQ;
+export default Faq;
