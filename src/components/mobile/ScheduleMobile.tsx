@@ -42,6 +42,9 @@ const ScheduleMobile = () => {
         }}
       >
         <div className="absolute inset-0 text-pale-yellow h-[160vw] w-[60vw] mx-auto translate-y-[40vw] overflow-y-auto overflow-x-hidden">
+          <p className="text-m font-bold mt-3 mb-3 text-center">
+            Subject to change!
+          </p>
           <h2 className="text-4xl font-bold mb-3 break-words">
             LEARNATHON [3/1]
           </h2>
