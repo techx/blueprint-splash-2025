@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Model } from "../Final_model_2.jsx";
+import { Model } from "../Final_model_4.jsx";
 import { Mesh, MeshStandardMaterial } from "three";
 
 interface NameToLink {
@@ -82,18 +82,7 @@ const HoverableModel = ({ onObjectClick, ...props }: HoverableModelProps) => {
 };
 
 const Home: React.FC = () => {
-  const [scale, setScale] = useState(0.6);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScale(window.innerWidth < 640 ? 0.4 : 0.6);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const handleObjectClick = (clickedMesh: string) => {
     if (name_to_link[clickedMesh]) {
@@ -109,10 +98,15 @@ const Home: React.FC = () => {
         className="w-full h-full"
       >
         <ambientLight intensity={0.5} />
-        <group position={[0, -1.2, 0]}>
-          <HoverableModel scale={scale} onObjectClick={handleObjectClick} />
+        <group position={[0, -1.8, 0]}>
+          <HoverableModel scale={0.8} onObjectClick={handleObjectClick} />
         </group>
-        <OrbitControls minDistance={10} maxDistance={24} />
+        <OrbitControls
+          minDistance={16}
+          maxDistance={16}
+          maxPolarAngle={Math.PI / 2.5}
+          minPolarAngle={Math.PI / 2.5}
+        />
       </Canvas>
     </div>
   );

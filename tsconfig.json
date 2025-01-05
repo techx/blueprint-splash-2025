@@ -21,6 +21,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "src/components/Final_model_4.jsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
