@@ -40,47 +40,94 @@ interface ImageData {
 
 const imageData: ImageData[] = [
   {
-    src: "1.jpg",
+    src: "/Full Images/Full1.JPG",
     caption:
       "A visitor from Boston Dynamics, Spot, attends a workshop alongside Blueprint '24 attendees.",
   },
   {
-    src: "2.jpg",
+    src: "/Full Images/Full2.JPG",
     caption:
       "Attendees had the chance to talk with local organizations at the organization fair.",
   },
   {
-    src: "3.jpg",
-    caption: "[caption 3]",
+    src: "/Full Images/Full3.JPG",
+    caption: "Blueprint ‘24 attendees at the hardware learnathon workshop!",
   },
   {
-    src: "4.jpg",
+    src: "/Full Images/Full4.JPG",
     caption: "[caption 4]",
   },
   {
-    src: "5.jpg",
+    src: "/Full Images/Full5.JPG",
     caption: "Hackathon day begins!",
   },
   {
-    src: "6.jpg",
+    src: "/Full Images/Full6.JPG",
     caption: "Teams are given 8 hours to complete their hackathon project.",
   },
   {
-    src: "7.jpg",
+    src: "/Full Images/Full7.JPG",
     caption: "A surprise visit from Tim the Beaver, MIT's mascot!",
   },
   {
-    src: "8.jpg",
+    src: "/Full Images/Full8.JPG",
     caption:
       "Attendees race to build the tallest cup stacking tower in one of the Blueprint '24 mini-events.",
   },
   {
-    src: "9.jpg",
+    src: "/Full Images/Full9.JPG",
     caption:
       "The final stretch before the submission deadline on hackathon day.",
   },
   {
-    src: "10.jpg",
+    src: "/Full Images/Full10.JPG",
+    caption: "The winners of the general category from Blueprint '24.",
+  },
+];
+
+const imageDataCompressed: ImageData[] = [
+  {
+    src: "Pre1.png",
+    caption:
+      "A visitor from Boston Dynamics, Spot, attends a workshop alongside Blueprint '24 attendees.",
+  },
+  {
+    src: "Pre2.jpg",
+    caption:
+      "Attendees had the chance to talk with local organizations at the organization fair.",
+  },
+  {
+    src: "Pre3.jpg",
+    caption: "Blueprint ‘24 attendees at the hardware learnathon workshop!",
+  },
+  {
+    src: "Pre4.jpg",
+    caption: "[caption 4]",
+  },
+  {
+    src: "Pre5.jpg",
+    caption: "Hackathon day begins!",
+  },
+  {
+    src: "Pre6.jpg",
+    caption: "Teams are given 8 hours to complete their hackathon project.",
+  },
+  {
+    src: "Pre7.jpg",
+    caption: "A surprise visit from Tim the Beaver, MIT's mascot!",
+  },
+  {
+    src: "Pre8.jpg",
+    caption:
+      "Attendees race to build the tallest cup stacking tower in one of the Blueprint '24 mini-events.",
+  },
+  {
+    src: "Pre9.jpg",
+    caption:
+      "The final stretch before the submission deadline on hackathon day.",
+  },
+  {
+    src: "Pre10.jpg",
     caption: "The winners of the general category from Blueprint '24.",
   },
 ];
@@ -182,10 +229,10 @@ const Photos = () => {
               </div>
 
               <div className="flex flex-row flex-start gap-7 md:gap-4 absolute mx-auto translate-x-2 top-3 w-[300vh] md:w-[200vh] z-10">
-                {imageData.map((item, index) => (
+                {imageDataCompressed.map((item, index) => (
                   <div
                     key={index}
-                    className="relative cursor-pointer transition-transform transform hover:scale-110 w-[180px] h-[180px] md:w-[122px] md:h-[122px] z-10"
+                    className="relative cursor-pointer transition-transform transform hover:scale-110 w-[160px] h-[160px] md:w-[122px] md:h-[122px] z-10"
                   >
                     <img
                       className="absolute inset-0 w-full h-full z-10"
@@ -195,7 +242,7 @@ const Photos = () => {
                     <div className="absolute top-[16%] left-[8%] w-[84%] h-[60%] overflow-hidden z-20">
                       <img
                         className="w-full h-full object-cover z-20"
-                        src={`/src/assets/${item.src}`}
+                        src={`/src/assets/Preview Images/${item.src}`}
                         alt={`Thumbnail ${index + 1}`}
                         onClick={() => openModal(index)}
                       />
