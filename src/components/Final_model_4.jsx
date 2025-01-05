@@ -17,6 +17,20 @@ export function Model({
   const { scene } = useGLTF("/final_model_4.gltf");
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
+  const cachedMaterials = React.useMemo(() => {
+    return {
+      ...materials,
+      floorBase: materials["Floor base"],
+      darkBrown: materials["Dark brown"],
+      warmBrown: materials["Warm brown"],
+      paleWhite: materials["Pale white"],
+      hotPink: materials["Hot pink"],
+      lightPink: materials["Light pink"],
+      lighterPink: materials["Lighter pink"],
+      greenFont: materials["Green font"],
+      floorPlank: materials["Floor plank"],
+    };
+  }, [materials]);
   return (
     <group {...props} dispose={null}>
       <pointLight
@@ -84,11 +98,11 @@ export function Model({
         />
         <mesh
           geometry={nodes.Fox_2.geometry}
-          material={materials["Green font"]}
+          material={cachedMaterials.greenFont}
         />
         <mesh
           geometry={nodes.Fox_3.geometry}
-          material={materials["Pale white"]}
+          material={cachedMaterials.paleWhite}
         />
         <mesh
           geometry={nodes.Fox_4.geometry}
@@ -105,11 +119,11 @@ export function Model({
       >
         <mesh
           geometry={nodes.Sign.geometry}
-          material={materials["Floor base"]}
+          material={cachedMaterials.floorBase}
         />
         <mesh
           geometry={nodes.Sign_1.geometry}
-          material={materials["Pale white"]}
+          material={cachedMaterials.paleWhite}
         />
         <mesh geometry={nodes.Sign_2.geometry} material={materials.Ceiling} />
       </group>
@@ -120,15 +134,15 @@ export function Model({
       >
         <mesh
           geometry={nodes.Cube020.geometry}
-          material={materials["Lighter pink"]}
+          material={cachedMaterials.lighterPink}
         />
         <mesh
           geometry={nodes.Cube020_1.geometry}
-          material={materials["Light pink"]}
+          material={cachedMaterials.lightPink}
         />
         <mesh
           geometry={nodes.Cube020_2.geometry}
-          material={materials["Hot pink"]}
+          material={cachedMaterials.hotPink}
         />
       </group>
       <group position={[0, 2.5, 0]} scale={2.5}>
@@ -139,7 +153,7 @@ export function Model({
         />
         <mesh
           geometry={nodes.Cube002_2.geometry}
-          material={materials["Dark brown"]}
+          material={cachedMaterials.darkBrown}
         />
       </group>
       <group
@@ -149,11 +163,11 @@ export function Model({
       >
         <mesh
           geometry={nodes.Circle001.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
         />
         <mesh
           geometry={nodes.Circle001_1.geometry}
-          material={materials["Dark brown"]}
+          material={cachedMaterials.darkBrown}
         />
         <mesh
           geometry={nodes.Circle001_2.geometry}
@@ -171,16 +185,16 @@ export function Model({
         />
         <mesh
           geometry={nodes.Cube006_2.geometry}
-          material={materials["Floor base"]}
+          material={cachedMaterials.floorBase}
         />
         <mesh
           geometry={nodes.Cube006_3.geometry}
-          material={materials["Pale white"]}
+          material={cachedMaterials.paleWhite}
         />
       </group>
       <mesh
         geometry={nodes.lightstring.geometry}
-        material={materials["Floor base"]}
+        material={cachedMaterials.floorBase}
         position={[-3.359, 4.424, -0.034]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[1, 1, 2.242]}
@@ -196,22 +210,22 @@ export function Model({
           />
           <mesh
             geometry={nodes.Sphere010_1.geometry}
-            material={materials["Warm brown"]}
+            material={cachedMaterials.warmBrown}
           />
           <mesh
             geometry={nodes.Sphere010_2.geometry}
-            material={materials["Floor base"]}
+            material={cachedMaterials.floorBase}
           />
         </group>
       </mesh>
       <group position={[0, 2.5, 0]} scale={2.5}>
         <mesh
           geometry={nodes.Cube003.geometry}
-          material={materials["Floor base"]}
+          material={cachedMaterials.floorBase}
         />
         <mesh
           geometry={nodes.Cube003_1.geometry}
-          material={materials["Floor plank"]}
+          material={cachedMaterials.floorPlank}
         />
       </group>
       <mesh
@@ -228,7 +242,7 @@ export function Model({
       >
         <mesh
           geometry={nodes.Cylinder005.geometry}
-          material={materials["Hot pink"]}
+          material={cachedMaterials.hotPink}
         />
         <mesh
           geometry={nodes.Cylinder005_1.geometry}
@@ -240,11 +254,11 @@ export function Model({
         />
         <mesh
           geometry={nodes.Cylinder005_3.geometry}
-          material={materials["Pale white"]}
+          material={cachedMaterials.paleWhite}
         />
         <mesh
           geometry={nodes.Cylinder005_4.geometry}
-          material={materials["Hot pink"]}
+          material={cachedMaterials.hotPink}
         />
       </group>
       <group
@@ -263,7 +277,7 @@ export function Model({
         <mesh
           name="about"
           geometry={nodes.Basket_Group002_1.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -290,7 +304,7 @@ export function Model({
       />
       <mesh
         geometry={nodes.Cube001.geometry}
-        material={materials["pale white"]}
+        material={cachedMaterials.paleWhite}
         position={[-0.223, 1.08, 0.113]}
         scale={[1, 1, 0.551]}
       />
@@ -309,7 +323,7 @@ export function Model({
         <mesh
           name="tracks"
           geometry={nodes.Donut6_1.geometry}
-          material={materials["Floor base"]}
+          material={cachedMaterials.floorBase}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -331,7 +345,7 @@ export function Model({
         <mesh
           name="tracks"
           geometry={nodes.Donut4_1.geometry}
-          material={materials["Hot pink"]}
+          material={cachedMaterials.hotPink}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -353,7 +367,7 @@ export function Model({
         <mesh
           name="tracks"
           geometry={nodes.Donut5_1.geometry}
-          material={materials["Floor base"]}
+          material={cachedMaterials.floorBase}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -375,7 +389,7 @@ export function Model({
         <mesh
           name="tracks"
           geometry={nodes.Donut3_1.geometry}
-          material={materials["Floor base"]}
+          material={cachedMaterials.floorBase}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -383,7 +397,7 @@ export function Model({
         <mesh
           name="tracks"
           geometry={nodes.Donut3_2.geometry}
-          material={materials["Light pink"]}
+          material={cachedMaterials.lightPink}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -391,7 +405,7 @@ export function Model({
         <mesh
           name="tracks"
           geometry={nodes.Donut3_3.geometry}
-          material={materials["Hot pink"]}
+          material={cachedMaterials.hotPink}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -435,7 +449,7 @@ export function Model({
         <mesh
           name="tracks"
           geometry={nodes.Display_Glass_1.geometry}
-          material={materials["Dark brown"]}
+          material={cachedMaterials.darkBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -449,7 +463,7 @@ export function Model({
         <mesh
           name="schedule"
           geometry={nodes.Chalkboard_1.geometry}
-          material={materials["Floor plank"]}
+          material={cachedMaterials.floorPlank}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -465,7 +479,7 @@ export function Model({
         <mesh
           name="schedule"
           geometry={nodes.Chalkboard_3.geometry}
-          material={materials["pale white"]}
+          material={cachedMaterials.paleWhite}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -487,14 +501,14 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_2.geometry}
-          material={materials["Dark brown"]}
+          material={cachedMaterials.darkBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
         />
         <mesh
           geometry={nodes.Wall_Decor_3.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
         />
         <mesh
           geometry={nodes.Wall_Decor_4.geometry}
@@ -502,12 +516,12 @@ export function Model({
         />
         <mesh
           geometry={nodes.Wall_Decor_5.geometry}
-          material={materials["Floor base"]}
+          material={cachedMaterials.floorBase}
         />
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_6.geometry}
-          material={materials["Dark brown"]}
+          material={cachedMaterials.darkBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -515,7 +529,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_7.geometry}
-          material={materials["Light pink"]}
+          material={cachedMaterials.lightPink}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -523,7 +537,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_8.geometry}
-          material={materials["Lighter pink"]}
+          material={cachedMaterials.lighterPink}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -531,7 +545,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_9.geometry}
-          material={materials["Floor base"]}
+          material={cachedMaterials.floorBase}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -539,7 +553,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_10.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -547,7 +561,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_11.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -555,7 +569,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_12.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -563,7 +577,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_13.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -571,7 +585,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_14.geometry}
-          material={materials["Dark brown"]}
+          material={cachedMaterials.darkBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -579,7 +593,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_15.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -587,7 +601,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_16.geometry}
-          material={materials["Dark brown"]}
+          material={cachedMaterials.darkBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -595,7 +609,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_17.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -603,7 +617,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_18.geometry}
-          material={materials["Dark brown"]}
+          material={cachedMaterials.darkBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -611,7 +625,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_19.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -619,7 +633,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_20.geometry}
-          material={materials["Dark brown"]}
+          material={cachedMaterials.darkBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -627,7 +641,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Wall_Decor_21.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -641,7 +655,7 @@ export function Model({
         <mesh
           name="faq"
           geometry={nodes.Table_1.geometry}
-          material={materials["Floor base"]}
+          material={cachedMaterials.floorBase}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -649,7 +663,7 @@ export function Model({
         <mesh
           name="faq"
           geometry={nodes.Table_2.geometry}
-          material={materials["Floor plank"]}
+          material={cachedMaterials.floorPlank}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -657,7 +671,7 @@ export function Model({
         <mesh
           name="faq"
           geometry={nodes.Table_3.geometry}
-          material={materials["Floor plank"]}
+          material={cachedMaterials.floorPlank}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -665,7 +679,7 @@ export function Model({
         <mesh
           name="faq"
           geometry={nodes.Table_4.geometry}
-          material={materials["Light pink"]}
+          material={cachedMaterials.lightPink}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -673,7 +687,7 @@ export function Model({
         <mesh
           name="faq"
           geometry={nodes.Table_5.geometry}
-          material={materials["Floor base"]}
+          material={cachedMaterials.floorBase}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -689,27 +703,27 @@ export function Model({
         <mesh geometry={nodes.Table_7.geometry} material={materials.Ceiling} />
         <mesh
           geometry={nodes.Table_8.geometry}
-          material={materials["Light pink"]}
+          material={cachedMaterials.lightPink}
         />
         <mesh
           geometry={nodes.Table_9.geometry}
-          material={materials["Pale white"]}
+          material={cachedMaterials.paleWhite}
         />
         <mesh
           geometry={nodes.Table_10.geometry}
-          material={materials["Hot pink"]}
+          material={cachedMaterials.hotPink}
         />
         <mesh
           geometry={nodes.Table_11.geometry}
-          material={materials["Dark brown"]}
+          material={cachedMaterials.darkBrown}
         />
         <mesh
           geometry={nodes.Table_12.geometry}
-          material={materials["Warm brown"]}
+          material={cachedMaterials.warmBrown}
         />
         <mesh
           geometry={nodes.Table_13.geometry}
-          material={materials["Green font"]}
+          material={cachedMaterials.greenFont}
         />
       </group>
       <group
@@ -720,7 +734,7 @@ export function Model({
         <mesh
           name="about"
           geometry={nodes.About_Text.geometry}
-          material={materials["Green font"]}
+          material={cachedMaterials.greenFont}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -728,7 +742,7 @@ export function Model({
         <mesh
           name="about"
           geometry={nodes.About_Text_1.geometry}
-          material={materials["Pale white"]}
+          material={cachedMaterials.paleWhite}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -742,7 +756,7 @@ export function Model({
         <mesh
           name="faq"
           geometry={nodes.FAQ_Text.geometry}
-          material={materials["Green font"]}
+          material={cachedMaterials.greenFont}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -750,7 +764,7 @@ export function Model({
         <mesh
           name="faq"
           geometry={nodes.FAQ_Text_1.geometry}
-          material={materials["Pale white"]}
+          material={cachedMaterials.paleWhite}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -764,7 +778,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Photos_Text.geometry}
-          material={materials["Green font"]}
+          material={cachedMaterials.greenFont}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -772,7 +786,7 @@ export function Model({
         <mesh
           name="photos"
           geometry={nodes.Photos_Text_1.geometry}
-          material={materials["Pale white"]}
+          material={cachedMaterials.paleWhite}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -786,7 +800,7 @@ export function Model({
         <mesh
           name="schedule"
           geometry={nodes.Schedule_Text.geometry}
-          material={materials["Green font"]}
+          material={cachedMaterials.greenFont}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -794,7 +808,7 @@ export function Model({
         <mesh
           name="schedule"
           geometry={nodes.Schedule_Text_1.geometry}
-          material={materials["Pale white"]}
+          material={cachedMaterials.paleWhite}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -808,7 +822,7 @@ export function Model({
         <mesh
           name="tracks"
           geometry={nodes.Tracks_Text.geometry}
-          material={materials["Green font"]}
+          material={cachedMaterials.greenFont}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
@@ -816,7 +830,7 @@ export function Model({
         <mesh
           name="tracks"
           geometry={nodes.Tracks_Text_1.geometry}
-          material={materials["Pale white"]}
+          material={cachedMaterials.paleWhite}
           onPointerOver={onPointerOver}
           onPointerOut={onPointerOut}
           onClick={onClick}
