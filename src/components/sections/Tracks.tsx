@@ -98,7 +98,7 @@ const Tracks = () => {
                         onMouseEnter={() => setHoverDonutImage(trackNum)}
                         onMouseLeave={() => setHoverDonutImage(0)}
                       >
-                        <div className="text-pale-yellow text-center md:text-[10px]">
+                        <div className="text-pale-yellow text-center md:text-[10px] font-semibold">
                           {text}
                         </div>
                       </div>
@@ -472,7 +472,7 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
                     <div>
                       <a
                         href={resource.url}
-                        className="text-lg leading-relaxed"
+                        className="text-lg leading-relaxed hover:underline"
                       >
                         {resource.heading}
                       </a>
