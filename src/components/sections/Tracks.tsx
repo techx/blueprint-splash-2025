@@ -25,41 +25,34 @@ const Tracks = () => {
           </div>
 
           <div className="relative w-[60%] h-[100%] flex items-center justify-center rounded-3xl p- mt-8 shadow-lg bg-pale-yellow">
-            {!isImageClicked && (
-              <img
-                className="h-full w-auto object-contain"
-                src="/images/Tracks/boxstates/box_closed.png"
-                alt="track"
-                onClick={handleImageClick}
-              />
-            )}
+            <img
+              className={`h-full w-auto object-contain absolute transition-opacity duration-200 ${
+                isImageClicked ? "opacity-0" : "opacity-100"
+              }`}
+              src="/images/Tracks/boxstates/box_closed.png"
+              alt="track"
+              onClick={handleImageClick}
+            />
             {isImageClicked && (
-              <div className="h-full w-auto">
-                {videoFinished ? (
-                  hoverDonutImage ? (
-                    <img
-                      className="h-full w-auto object-contain z-49"
-                      src={`/images/Tracks/boxstates/selected/donut${hoverDonutImage}.png`}
-                      alt="track"
-                    />
-                  ) : (
-                    <img
-                      className="h-full w-auto object-contain z-49"
-                      src={`/images/Tracks/boxstates/box_opened.png`}
-                      alt="Full Box"
-                    />
-                  )
-                ) : (
-                  <video
-                    className="h-full w-auto z-49 bg-transparent"
-                    src={"/images/Tracks/boxstates/box_opening.webm"}
-                    onEnded={() => setVideoFinished(true)}
-                    autoPlay
-                    muted
-                  />
-                )}
+              <div className="h-full w-auto absolute">
+                <video
+                  className="h-full w-auto z-10 bg-transparent"
+                  src={"/images/Tracks/boxstates/box_opening.webm"}
+                  onEnded={() => setVideoFinished(true)}
+                  autoPlay
+                  muted
+                />
                 {videoFinished && (
                   <>
+                    <img
+                      className="h-full w-auto object-contain z-20 absolute top-0 left-0"
+                      src={
+                        hoverDonutImage
+                          ? `/images/Tracks/boxstates/selected/donut${hoverDonutImage}.png`
+                          : `/images/Tracks/boxstates/box_opened.png`
+                      }
+                      alt={hoverDonutImage ? "track" : "Full Box"}
+                    />
                     {[
                       {
                         top: "-74%",
@@ -88,7 +81,7 @@ const Tracks = () => {
                     ].map(({ top, left, track: trackNum, text }) => (
                       <div
                         key={trackNum}
-                        className="relative h-[24%] w-[24%] z-50 opacity-0 hover:opacity-100 transition ease-linear flex items-center justify-center text-wrap text-white cursor-pointer"
+                        className="relative h-[24%] w-[24%] z-30 opacity-0 hover:opacity-100 transition ease-linear flex items-center justify-center text-wrap text-white cursor-pointer"
                         style={{
                           backgroundColor: "transparent",
                           top,
@@ -472,7 +465,7 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
                     <div>
                       <a
                         href={resource.url}
-                        className="text-lg leading-relaxed hover:underline"
+                        className="text-lg leading-relaxed underline hover:text-brown transition-colors"
                       >
                         {resource.heading}
                       </a>
