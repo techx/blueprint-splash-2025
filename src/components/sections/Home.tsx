@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -92,22 +92,30 @@ const Home: React.FC = () => {
 
   return (
     <div className="flex-grow flex h-[100vh]">
-      <Canvas
-        shadows
-        camera={{ position: [10, 5, 10], fov: 25 }}
-        className="w-full h-full"
+      <Suspense
+        fallback={
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            Loading...
+          </div>
+        }
       >
-        <ambientLight intensity={0.5} />
-        <group position={[0, -1.8, 0]}>
-          <HoverableModel scale={0.8} onObjectClick={handleObjectClick} />
-        </group>
-        <OrbitControls
-          minDistance={16}
-          maxDistance={16}
-          maxPolarAngle={Math.PI / 2.5}
-          minPolarAngle={Math.PI / 2.5}
-        />
-      </Canvas>
+        <Canvas
+          shadows
+          camera={{ position: [10, 5, 10], fov: 25 }}
+          className="w-full h-full"
+        >
+          <ambientLight intensity={0.5} />
+          <group position={[0, -1.8, 0]}>
+            <HoverableModel scale={0.8} onObjectClick={handleObjectClick} />
+          </group>
+          <OrbitControls
+            minDistance={16}
+            maxDistance={16}
+            maxPolarAngle={Math.PI / 2.5}
+            minPolarAngle={Math.PI / 2.5}
+          />
+        </Canvas>
+      </Suspense>
     </div>
   );
 };
