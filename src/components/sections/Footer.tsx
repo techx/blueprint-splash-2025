@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="flex justify-between items-center p-4 bg-gray-100 w-full">
+    <footer className="flex justify-between items-center p-4 px-8 bg-gray-100 w-full">
       <div className="text-xl text-magenta font-medium">
         Made with <FaHeart className="inline text-magenta mx-1 mb-1" /> by the{" "}
         <a

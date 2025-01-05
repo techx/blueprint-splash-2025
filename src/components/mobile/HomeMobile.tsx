@@ -1,7 +1,7 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Model } from "../Final_model_2.jsx";
+import { Model } from "../Final_model_4.jsx";
 
 const HomeMobile: React.FC = () => {
   return (
@@ -12,10 +12,15 @@ const HomeMobile: React.FC = () => {
         className="w-full h-full"
       >
         <ambientLight intensity={0.5} />
-        <group position={[0, -1.2, 0]}>
-          <Model scale={0.5} />
+        <group position={[0, -1.8, 0]}>
+          <Model scale={0.8} />
         </group>
-        <OrbitControls minDistance={13} maxDistance={20} />
+        <OrbitControls
+          minDistance={20}
+          maxDistance={20}
+          maxPolarAngle={Math.PI / 2.5}
+          minPolarAngle={Math.PI / 2.5}
+        />
       </Canvas>
     </div>
   );
