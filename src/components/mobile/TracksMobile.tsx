@@ -27,6 +27,16 @@ const TracksMobile = () => {
           desc: "Github reference page",
         },
         {
+          heading: "Hubspot Tutorial",
+          url: "https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners",
+          desc: "Introduction to Git for beginners",
+        },
+        {
+          heading: "Lifewire",
+          url: "https://www.lifewire.com/what-is-a-web-application-3486637",
+          desc: "What is a webapp? (article)",
+        },
+        {
           heading: "FreeCodeCamp.org",
           url: "http://FreeCodeCamp.org",
           desc: "Intro to HTML/CSS, JavaScript, and responsive web design",
@@ -35,6 +45,26 @@ const TracksMobile = () => {
           heading: "HTMLDog",
           url: "https://htmldog.com/",
           desc: "Tutorials and techniques for implementing HTML/CSS",
+        },
+        {
+          heading: "Codeacademy",
+          url: "https://www.codecademy.com/",
+          desc: "Beginner and more advanced web development tutorials",
+        },
+        {
+          heading: "MozillaDocs (HTML)",
+          url: "https://developer.mozilla.org/en-US/docs/Web/Tutorials",
+          desc: "Tutorials for creating web pages with HTML spanning all skill levels",
+        },
+        {
+          heading: "JavaScript.info",
+          url: "http://JavaScript.info",
+          desc: "Intro to Javascript",
+        },
+        {
+          heading: "MozillaDocs (JavaScript)",
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript",
+          desc: "An in-depth beginner’s guide to JavaScript",
         },
       ],
     },
@@ -52,14 +82,34 @@ const TracksMobile = () => {
       ],
       resources: [
         {
-          heading: "React Tutorial",
-          url: "https://reactjs.org/tutorial/tutorial.html",
-          desc: "Intro to React",
+          heading: "FreeCodeCamp.org",
+          url: "http://FreeCodeCamp.org",
+          desc: "Intro to HTML/CSS, JavaScript, and responsive web design",
+        },
+        {
+          heading: "HTMLDog",
+          url: "https://htmldog.com/",
+          desc: "Tutorials and techniques for implementing HTML/CSS",
+        },
+        {
+          heading: "Codeacademy",
+          url: "https://www.codecademy.com/",
+          desc: "Beginner and more advanced web development tutorials",
         },
         {
           heading: "JavaScript.info",
           url: "http://JavaScript.info",
           desc: "Intro to Javascript",
+        },
+        {
+          heading: "MozillaDocs (JavaScript)",
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript",
+          desc: "An in-depth beginner’s guide to JavaScript",
+        },
+        {
+          heading: "React Tutorial",
+          url: "https://reactjs.org/tutorial/tutorial.html",
+          desc: "Intro to React",
         },
       ],
     },
@@ -78,14 +128,39 @@ const TracksMobile = () => {
       ],
       resources: [
         {
-          heading: "Unity Learn",
-          url: "https://learn.unity.com/",
-          desc: "Tutorials to learn game development with Unity",
+          heading: "try.github.io",
+          url: "try.github.io",
+          desc: "Github reference page",
+        },
+        {
+          heading: "Hubspot Tutorial",
+          url: "https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners",
+          desc: "Introduction to Git for beginners",
+        },
+        {
+          heading: "CS50",
+          url: "https://www.youtube.com/playlist?list=PLWKjhJtqVAbluXJKKbCIb4xd7fcRkpzoz",
+          desc: "Extensive playlist covering introductory game development taught at Harvard CS50.",
         },
         {
           heading: "Phaser",
           url: "https://phaser.io/",
           desc: "HTML5 game framework (web and mobile).",
+        },
+        {
+          heading: "LibreSprite",
+          url: "https://libresprite.github.io/",
+          desc: "Free and open source program for creating sprites.",
+        },
+        {
+          heading: "Bosca Ceoil",
+          url: "https://boscaceoil.net/",
+          desc: "Free tool to create music aimed at beginners.",
+        },
+        {
+          heading: "Unity Learn",
+          url: "https://learn.unity.com/",
+          desc: "Tutorials to learn game development with Unity",
         },
       ],
     },
@@ -107,6 +182,21 @@ const TracksMobile = () => {
           heading: "Arduino Setup Tutorial",
           url: "https://arduinogetstarted.com/",
           desc: "Learn how to set up an Arduino",
+        },
+        {
+          heading: "Paul McWhorter's Arduino Tutorial",
+          url: "https://www.youtube.com/playlist?list=PLGs0VKk2DiYw-L-RibttcvK-WBZm8WLEP",
+          desc: "An Arduino tutorial series on YouTube",
+        },
+        {
+          heading: "All About Circuits",
+          url: "https://www.allaboutcircuits.com/",
+          desc: "Circuit news and information",
+        },
+        {
+          heading: "Circuits with Arduino",
+          url: "https://www.circuitbasics.com/arduino/",
+          desc: "Circuit basics with Arduino",
         },
         {
           heading: "Learn C!",
