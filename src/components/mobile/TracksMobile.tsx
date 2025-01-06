@@ -125,6 +125,7 @@ const TracksMobile = () => {
         "Are you interested in making your own games?",
         "How can you bring your creativity into different aspects of game design (art, music, level design)?",
         "What are some of your favorite games and what makes them fun?",
+        "What are some of your favorite game mechanics and how can you incorporate them into your own game?",
       ],
       resources: [
         {
@@ -176,6 +177,8 @@ const TracksMobile = () => {
         "Have you ever wondered how circuits and other electrical components work?",
         "Have you ever wanted to make your own circuit?",
         "Are there any appliances that currently don't exist that would be beneficial for your day-to-day?",
+        "Do you want to find out how code and hardware interact?",
+        "Are you interested in learning a new language that specializes in interacting with hardware?",
       ],
       resources: [
         {
