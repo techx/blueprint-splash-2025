@@ -43,10 +43,10 @@ const Faq = () => {
       title: "How much experience do I need to attend?",
       content: (
         <>
-          Zero computer science, coding, or hacking experience is needed! We
-          encourage students of all skill levels to apply—many of our workshops
-          assume you have no experience and will help build your coding
-          abilities from the ground up.
+          <strong>Zero</strong> computer science, coding, or hacking experience
+          is needed! We encourage students of <strong>all skill levels</strong>{" "}
+          to apply—many of our workshops assume you have no experience and will
+          help build your coding abilities from the ground up.
         </>
       ),
     },
@@ -126,9 +126,10 @@ const Faq = () => {
       title: "Am I eligible to attend?",
       content: (
         <>
-          If you're a high school student, we invite you to apply - no coding
-          experience required! Blueprint will teach you all you need to know to
-          compete in your first hackathon, so beginners are more than welcome!
+          If you're a <strong>high school student</strong>, we invite you to
+          apply - no coding experience required! Blueprint will teach you all
+          you need to know to compete in your first hackathon, so beginners are
+          more than welcome!
         </>
       ),
     },
@@ -136,8 +137,8 @@ const Faq = () => {
       title: "Does Blueprint cost money?",
       content: (
         <>
-          Admission is free and includes mentors, workshops, swag, resources,
-          and an unforgettable experience!
+          Admission is <strong>free</strong> and includes mentors, workshops,
+          swag, resources, and an unforgettable experience!
         </>
       ),
     },
@@ -229,30 +230,34 @@ const Faq = () => {
             <h2 className="text-4xl font-bold mb-4 ml-6">GENERAL</h2>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               {generalQuestions.map((item, index) => (
-                <li key={index} className="mb-[10px] flex items-start">
-                  <img
-                    src={ClosedBullet}
-                    alt="dropdown"
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      marginRight: "10px",
-                      cursor: "pointer",
-                      marginTop: "5px",
-                      transition: "transform 0.3s ease",
-                      transform: openIndexes.includes(index)
-                        ? "rotate(90deg)"
-                        : "rotate(0deg)",
-                    }}
-                    onClick={() => toggleItem(index, "general")}
-                  />
-                  <div className="w-full">
-                    <div
+                <li key={index} className="mb-[10px] flex flex-col items-start">
+                  <div className="flex items-start hover:opacity-70">
+                    <img
+                      src={ClosedBullet}
+                      alt="dropdown"
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        marginRight: "10px",
+                        cursor: "pointer",
+                        marginTop: "5px",
+                        transition: "transform 0.3s ease",
+                        transform: openIndexes.includes(index)
+                          ? "rotate(90deg)"
+                          : "rotate(0deg)",
+                      }}
                       onClick={() => toggleItem(index, "general")}
-                      className="cursor-pointer font-bold mb-[5px] text-xl text-dark-green hover:text-light-green"
-                    >
-                      {item.title}
+                    />
+                    <div className="w-full">
+                      <div
+                        onClick={() => toggleItem(index, "general")}
+                        className="cursor-pointer font-bold mb-[5px] text-xl text-dark-green"
+                      >
+                        {item.title}
+                      </div>
                     </div>
+                  </div>
+                  <div className="w-full">
                     <div
                       className="overflow-hidden transition-all duration-300 ease-in-out"
                       style={{
@@ -260,7 +265,7 @@ const Faq = () => {
                         opacity: openIndexes.includes(index) ? 1 : 0,
                       }}
                     >
-                      <div className="text-lg leading-relaxed pr-[10px]">
+                      <div className="text-lg leading-relaxed pl-[30px] pr-[10px]">
                         {item.content}
                       </div>
                     </div>
@@ -271,37 +276,34 @@ const Faq = () => {
             <h2 className="text-4xl font-bold mb-4 ml-6">LOGISTICS</h2>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               {logisticsQuestions.map((item, index) => (
-                <li
-                  key={index}
-                  style={{
-                    marginBottom: "10px",
-                    display: "flex",
-                    alignItems: "flex-start",
-                  }}
-                >
-                  <img
-                    src={ClosedBullet}
-                    alt="dropdown"
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      marginRight: "10px",
-                      cursor: "pointer",
-                      marginTop: "5px",
-                      transition: "transform 0.3s ease",
-                      transform: openIndexes.includes(index + 7)
-                        ? "rotate(90deg)"
-                        : "rotate(0deg)",
-                    }}
-                    onClick={() => toggleItem(index, "logistics")}
-                  />
-                  <div className="w-full">
-                    <div
+                <li key={index} className="mb-[10px] flex flex-col items-start">
+                  <div className="flex items-start hover:opacity-70">
+                    <img
+                      src={ClosedBullet}
+                      alt="dropdown"
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        marginRight: "10px",
+                        cursor: "pointer",
+                        marginTop: "5px",
+                        transition: "transform 0.3s ease",
+                        transform: openIndexes.includes(index + 7)
+                          ? "rotate(90deg)"
+                          : "rotate(0deg)",
+                      }}
                       onClick={() => toggleItem(index, "logistics")}
-                      className="cursor-pointer font-bold mb-[5px] text-[20px] text-dark-green hover:text-light-green"
-                    >
-                      {item.title}
+                    />
+                    <div className="w-full">
+                      <div
+                        onClick={() => toggleItem(index, "logistics")}
+                        className="cursor-pointer font-bold mb-[5px] text-xl text-dark-green"
+                      >
+                        {item.title}
+                      </div>
                     </div>
+                  </div>
+                  <div className="w-full">
                     <div
                       className="overflow-hidden transition-all duration-300 ease-in-out"
                       style={{
@@ -311,7 +313,7 @@ const Faq = () => {
                         opacity: openIndexes.includes(index + 7) ? 1 : 0,
                       }}
                     >
-                      <div className="text-lg leading-relaxed pr-[10px]">
+                      <div className="text-lg leading-relaxed pl-[30px] pr-[10px]">
                         {item.content}
                       </div>
                     </div>
