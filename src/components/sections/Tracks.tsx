@@ -31,9 +31,9 @@ const Tracks = () => {
             </p>
           </div>
 
-          <div className="relative w-[60%] h-[100%] flex items-center justify-center rounded-3xl p- mt-8 shadow-lg bg-pale-yellow">
+          <div className="relative w-[60%] h-[100%] flex items-center justify-center rounded-3xl p- mt-8 shadow-lg bg-[#f9f0d0]">
             <img
-              className={`h-full w-auto object-contain absolute transition-opacity duration-200 ${
+              className={`h-full max-w-[75%] object-contain absolute transition-opacity duration-200 ${
                 isImageClicked ? "opacity-0" : "opacity-100"
               }`}
               src="/images/Tracks/boxstates/box_closed.png"
@@ -41,7 +41,7 @@ const Tracks = () => {
               onClick={handleImageClick}
             />
             {isImageClicked && (
-              <div className="h-full w-auto absolute">
+              <div className="h-full max-w-[75%] absolute">
                 <video
                   className="h-full w-auto z-10 bg-transparent"
                   src={"/images/Tracks/boxstates/box_opening.webm"}
