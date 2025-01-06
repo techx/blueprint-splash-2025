@@ -1,3 +1,4 @@
+import Countdown from "../Countdown";
 import basket from "/images/About/basket.svg";
 
 const AboutMobile = () => {
@@ -5,6 +6,11 @@ const AboutMobile = () => {
     <section id="About">
       <div className="px-6 py-4 space-y-6">
         <h1 className="text-5xl font-bold text-center">BLUEPRINT 2025</h1>
+        <div className="text-center font-semibold text-lg">3.1 - 3.2 2025</div>
+        <Countdown
+          className="text-center font-semibold text-lg"
+          to={new Date("February 3, 2025 11:59:59 EST")}
+        />
 
         <p className="text-base leading-relaxed mx-4">
           Blueprint is a weekend-long learnathon and hackathon for high school
