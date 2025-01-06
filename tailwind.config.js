@@ -28,6 +28,7 @@ export default {
       "dark-green": "#3F5A3E",
       polaroid: "#F6F4F4",
       black: "#000000",
+      "light-green": "#608A5F",
     },
   },
   plugins: [],
