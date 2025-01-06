@@ -1,38 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Modal from "../Modal";
 
-// interface Testimonial {
-//   id: number;
-//   name: string;
-//   text: string;
-//   img: string;
-//   delay: number;
-// }
-
-// const TestimonialsData: Testimonial[] = [
-//   {
-//     id: 1,
-//     name: "HACK",
-//     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio.",
-//     img: "https://picsum.photos/101/101",
-//     delay: 0.2,
-//   },
-//   {
-//     id: 2,
-//     name: "MIT",
-//     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio.",
-//     img: "https://picsum.photos/102/102",
-//     delay: 0.5,
-//   },
-//   {
-//     id: 3,
-//     name: "SLAYS",
-//     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio.",
-//     img: "https://picsum.photos/103/103",
-//     delay: 0.8,
-//   },
-// ];
-
 interface ImageData {
   src: string;
   caption: string;
@@ -42,7 +10,7 @@ const imageData: ImageData[] = [
   {
     src: "/Full Images/Full1.JPG",
     caption:
-      "A visitor from Boston Dynamics, Spot, attends a workshop alongside Blueprint '24 attendees.",
+      "A visitor from Boston Dynamics, Spot, attends a workshop alongside Blueprint ‘24 attendees.",
   },
   {
     src: "/Full Images/Full2.JPG",
@@ -55,7 +23,7 @@ const imageData: ImageData[] = [
   },
   {
     src: "/Full Images/Full4.JPG",
-    caption: "[caption 4]",
+    caption: "Advanced web dev workshop in progress.",
   },
   {
     src: "/Full Images/Full5.JPG",
@@ -67,12 +35,12 @@ const imageData: ImageData[] = [
   },
   {
     src: "/Full Images/Full7.JPG",
-    caption: "A surprise visit from Tim the Beaver, MIT's mascot!",
+    caption: "A surprise visit from Tim the Beaver, MIT‘s mascot!",
   },
   {
     src: "/Full Images/Full8.JPG",
     caption:
-      "Attendees race to build the tallest cup stacking tower in one of the Blueprint '24 mini-events.",
+      "Attendees race to build the tallest cup stacking tower in one of the Blueprint ‘24 mini-events.",
   },
   {
     src: "/Full Images/Full9.JPG",
@@ -81,7 +49,7 @@ const imageData: ImageData[] = [
   },
   {
     src: "/Full Images/Full10.JPG",
-    caption: "The winners of the general category from Blueprint '24.",
+    caption: "The winners of the general category from Blueprint ‘24.",
   },
 ];
 
@@ -89,7 +57,7 @@ const imageDataCompressed: ImageData[] = [
   {
     src: "Pre1.png",
     caption:
-      "A visitor from Boston Dynamics, Spot, attends a workshop alongside Blueprint '24 attendees.",
+      "A visitor from Boston Dynamics, Spot, attends a workshop alongside Blueprint ‘24 attendees.",
   },
   {
     src: "Pre2.jpg",
@@ -102,7 +70,7 @@ const imageDataCompressed: ImageData[] = [
   },
   {
     src: "Pre4.jpg",
-    caption: "[caption 4]",
+    caption: "Advanced web dev workshop in progress.",
   },
   {
     src: "Pre5.jpg",
@@ -114,12 +82,12 @@ const imageDataCompressed: ImageData[] = [
   },
   {
     src: "Pre7.jpg",
-    caption: "A surprise visit from Tim the Beaver, MIT's mascot!",
+    caption: "A surprise visit from Tim the Beaver, MIT‘s mascot!",
   },
   {
     src: "Pre8.jpg",
     caption:
-      "Attendees race to build the tallest cup stacking tower in one of the Blueprint '24 mini-events.",
+      "Attendees race to build the tallest cup stacking tower in one of the Blueprint ‘24 mini-events.",
   },
   {
     src: "Pre9.jpg",
@@ -128,50 +96,13 @@ const imageDataCompressed: ImageData[] = [
   },
   {
     src: "Pre10.jpg",
-    caption: "The winners of the general category from Blueprint '24.",
+    caption: "The winners of the general category from Blueprint ‘24.",
   },
 ];
 
 const Photos = () => {
   const [openImageIndex, setOpenImageIndex] = useState<number | null>(null);
   const modalContainerRef = useRef<HTMLDivElement>(null);
-
-  // const setting = {
-  //   dots: true,
-  //   arrow: false,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToScroll: 1,
-  //   autoplaySpeed: 2000,
-  //   cssEase: "linear",
-  //   pauseOnHover: true,
-  //   pauseOnFocus: true,
-  //   responsive: [
-  //     {
-  //       breakpoint: 10000,
-  //       settings: {
-  //         slidesToShow: 3,
-  //         slidesToScroll: 1,
-  //         infinite: true,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         slidesToShow: 2,
-  //         slidesToScroll: 1,
-  //         initialSlide: 2,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 640,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1,
-  //       },
-  //     },
-  //   ],
-  // };
 
   const openModal = (index: number) => {
     setOpenImageIndex(index);
@@ -218,9 +149,29 @@ const Photos = () => {
               PHOTOS
             </h1>
           </div>
-          <div className="overflow-x-auto overflow-hidden w-[100%] h-[28vh] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden absolute top-[78%] md:top-[70%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div
+            className="absolute top-[76%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] h-[28vh] overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            onWheel={(e) => {
+              const container = e.currentTarget;
+
+              // Prevent default behavior and page scroll
+              e.preventDefault();
+              e.stopPropagation();
+
+              // Handle horizontal scrolling
+              container.scrollLeft += e.deltaY;
+            }}
+            onMouseEnter={() => {
+              // Disable page scrolling when the mouse enters the div
+              document.body.style.overflow = "hidden";
+            }}
+            onMouseLeave={() => {
+              // Re-enable page scrolling when the mouse leaves the div
+              document.body.style.overflow = "";
+            }}
+          >
             <div className="relative">
-              <div className="w-[300vh] md:w-[200vh] mx-auto absolute z-40">
+              <div className="w-[300vh] mx-auto absolute z-40">
                 <img
                   src="/images/Photos/photo_string.svg"
                   alt="Photo String"
@@ -228,11 +179,11 @@ const Photos = () => {
                 />
               </div>
 
-              <div className="flex flex-row flex-start gap-7 md:gap-4 absolute mx-auto translate-x-2 top-3 w-[300vh] md:w-[200vh] z-10">
+              <div className="flex flex-row justify-between absolute top-3 w-[300vh] pl-[1vh] pr-[5vh] z-10">
                 {imageDataCompressed.map((item, index) => (
                   <div
                     key={index}
-                    className="relative cursor-pointer transition-transform transform hover:scale-110 w-[160px] h-[160px] md:w-[122px] md:h-[122px] z-10"
+                    className="relative cursor-pointer transition-transform transform hover:scale-110 w-[26vh] h-[26vh] z-10"
                   >
                     <img
                       className="absolute inset-0 w-full h-full z-10"
@@ -263,7 +214,7 @@ const Photos = () => {
               <div className="fixed inset-0 flex items-center justify-center">
                 <div
                   ref={modalContainerRef}
-                  className="bg-polaroid h-[80vh] md:h-[50vh] w-[60vw] rounded-xl p-8 shadow-2xl overflow-hidden flex flex-col z-60 relative"
+                  className="bg-polaroid h-[80vh] w-[60vw] rounded-xl p-8 shadow-2xl overflow-hidden flex flex-col z-60 relative"
                 >
                   <div className="flex flex-col h-full">
                     <div className="flex-1 overflow-hidden">
@@ -281,33 +232,6 @@ const Photos = () => {
               </div>
             </div>
           )}
-          {/* <h1 className="font-bold testimonials-title mt-4"> Testimonials</h1>
-          <div className="h-full">
-            <Slider {...setting}>
-              {TestimonialsData.map((item: Testimonial) => {
-                return (
-                  <div key={item.id}>
-                    <div className="flex flex-col gap-4 p-8 shadow-lg mx-4 rounded-xl bg-secondary/10"> */}
-          {/* Upper section */}
-          {/* <div className="flex justify-start items-center gap-5">
-                        <img
-                          src={item.img}
-                          alt={item.name}
-                          className="w-16 h-16 rounded-full"
-                        />
-                        <div>
-                          <p className="text-xl font-bold text-black/80">
-                            {item.name}
-                          </p>
-                          <p>{item.text}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </Slider>
-          </div> */}
         </div>
       </Modal>
     </div>

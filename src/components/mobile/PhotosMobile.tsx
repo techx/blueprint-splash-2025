@@ -9,7 +9,7 @@ const imageData: ImageData[] = [
   {
     src: "/Full Images/Full1.JPG",
     caption:
-      "A visitor from Boston Dynamics, Spot, attends a workshop alongside Blueprint '24 attendees.",
+      "A visitor from Boston Dynamics, Spot, attends a workshop alongside Blueprint ‘24 attendees.",
   },
   {
     src: "/Full Images/Full2.JPG",
@@ -22,7 +22,7 @@ const imageData: ImageData[] = [
   },
   {
     src: "/Full Images/Full4.JPG",
-    caption: "[caption 4]",
+    caption: "Advanced web dev workshop in progress.",
   },
   {
     src: "/Full Images/Full5.JPG",
@@ -34,12 +34,12 @@ const imageData: ImageData[] = [
   },
   {
     src: "/Full Images/Full7.JPG",
-    caption: "A surprise visit from Tim the Beaver, MIT's mascot!",
+    caption: "A surprise visit from Tim the Beaver, MIT‘s mascot!",
   },
   {
     src: "/Full Images/Full8.JPG",
     caption:
-      "Attendees race to build the tallest cup stacking tower in one of the Blueprint '24 mini-events.",
+      "Attendees race to build the tallest cup stacking tower in one of the Blueprint ‘24 mini-events.",
   },
   {
     src: "/Full Images/Full9.JPG",
@@ -48,7 +48,54 @@ const imageData: ImageData[] = [
   },
   {
     src: "/Full Images/Full10.JPG",
-    caption: "The winners of the general category from Blueprint '24.",
+    caption: "The winners of the general category from Blueprint ‘24.",
+  },
+];
+
+const imageDataCompressed: ImageData[] = [
+  {
+    src: "Pre1.png",
+    caption:
+      "A visitor from Boston Dynamics, Spot, attends a workshop alongside Blueprint ‘24 attendees.",
+  },
+  {
+    src: "Pre2.jpg",
+    caption:
+      "Attendees had the chance to talk with local organizations at the organization fair.",
+  },
+  {
+    src: "Pre3.jpg",
+    caption: "Blueprint ‘24 attendees at the hardware learnathon workshop!",
+  },
+  {
+    src: "Pre4.jpg",
+    caption: "Advanced web dev workshop in progress.",
+  },
+  {
+    src: "Pre5.jpg",
+    caption: "Hackathon day begins!",
+  },
+  {
+    src: "Pre6.jpg",
+    caption: "Teams are given 8 hours to complete their hackathon project.",
+  },
+  {
+    src: "Pre7.jpg",
+    caption: "A surprise visit from Tim the Beaver, MIT‘s mascot!",
+  },
+  {
+    src: "Pre8.jpg",
+    caption:
+      "Attendees race to build the tallest cup stacking tower in one of the Blueprint ‘24 mini-events.",
+  },
+  {
+    src: "Pre9.jpg",
+    caption:
+      "The final stretch before the submission deadline on hackathon day.",
+  },
+  {
+    src: "Pre10.jpg",
+    caption: "The winners of the general category from Blueprint ‘24.",
   },
 ];
 
@@ -92,7 +139,26 @@ const PhotosMobile = () => {
         </h1>
 
         {/* Photo string and photos */}
-        <div className="relative mt-12 w-[100%] h-[34vh] overflow-hidden overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div
+          className="relative mt-12 w-[100%] h-[34vh] overflow-y-hidden overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          onWheel={(e) => {
+            const container = e.currentTarget;
+
+            // Prevent default behavior and page scroll
+            e.preventDefault();
+
+            // Handle horizontal scrolling
+            container.scrollLeft += e.deltaY;
+          }}
+          onMouseEnter={() => {
+            // Disable page scrolling when the mouse enters the div
+            document.body.style.overflow = "hidden";
+          }}
+          onMouseLeave={() => {
+            // Re-enable page scrolling when the mouse leaves the div
+            document.body.style.overflow = "";
+          }}
+        >
           {/* Photo string */}
           <div className="relative w-[350vh] z-40">
             <img
@@ -103,8 +169,8 @@ const PhotosMobile = () => {
           </div>
 
           {/* Photos */}
-          <div className="relative flex flex-row flex-start gap-[3.8vh] w-[350vh] translate-x-2 -translate-y-10 md:-translate-y-12 z-10">
-            {imageData.map((item, index) => (
+          <div className="relative flex flex-row justify-between pl-[1vh] pr-[5vh] w-[350vh] -translate-y-10 md:-translate-y-12 z-10">
+            {imageDataCompressed.map((item, index) => (
               <div
                 key={index}
                 className="transition-transform transform w-[31vh] h-[31vh] z-10"
@@ -117,7 +183,7 @@ const PhotosMobile = () => {
                 />
                 <div className="absolute top-[16%] left-[7%] w-[85%] h-[55%]">
                   <img
-                    src={`/src/assets/${item.src}`}
+                    src={`/src/assets/Preview Images/${item.src}`}
                     alt={`Thumbnail ${index + 1}`}
                     className="w-full h-full object-cover"
                   />
