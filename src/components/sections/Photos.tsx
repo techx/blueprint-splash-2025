@@ -158,22 +158,16 @@ const Photos = () => {
             className="absolute top-[76%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] h-[28vh] overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             onWheel={(e) => {
               const container = e.currentTarget;
-
-              // Prevent default behavior and page scroll
-              e.preventDefault();
               e.stopPropagation();
-
-              // Handle horizontal scrolling
               container.scrollLeft += e.deltaY;
             }}
             onMouseEnter={() => {
-              // Disable page scrolling when the mouse enters the div
               document.body.style.overflow = "hidden";
             }}
             onMouseLeave={() => {
-              // Re-enable page scrolling when the mouse leaves the div
               document.body.style.overflow = "";
             }}
+            style={{ touchAction: "none" }}
           >
             <div className="relative">
               <div className="w-[300vh] mx-auto absolute z-40">
