@@ -17,6 +17,32 @@ const name_to_link: NameToLink = {
   tracks: "/tracks",
 };
 
+// Map of routes to image paths that need preloading
+const routeImages: { [key: string]: string[] } = {
+  "/about": ["/images/About/basket.svg", "/images/About/bread.svg"],
+  "/faq": ["/images/Faq/faq_closed.svg", "/images/Faq/faq_asset.svg"],
+  "/photos": [
+    "/images/Photos/transparent_bg.svg",
+    "/images/Photos/photo_string.svg",
+  ],
+  "/schedule": ["/images/Schedule/sched_bg.svg"],
+  "/tracks": ["/images/Tracks/boxstates/box_closed.png"],
+};
+
+// Helper function to preload images
+const preloadImages = (imagePaths: string[]) => {
+  return Promise.all(
+    imagePaths.map((path) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = path;
+      });
+    })
+  );
+};
+
 interface HoverableModelProps {
   onObjectClick: (clickedMesh: string) => void;
   scale: number;
@@ -84,9 +110,16 @@ const HoverableModel = ({ onObjectClick, ...props }: HoverableModelProps) => {
 const Home: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleObjectClick = (clickedMesh: string) => {
-    if (name_to_link[clickedMesh]) {
-      navigate(name_to_link[clickedMesh]);
+  const handleObjectClick = async (clickedMesh: string) => {
+    const route = name_to_link[clickedMesh];
+    if (route) {
+      // Preload images before navigation
+      try {
+        await preloadImages(routeImages[route]);
+      } catch (err) {
+        console.error("Failed to preload some images:", err);
+      }
+      navigate(route);
     }
   };
 

@@ -103,6 +103,11 @@ const PhotosMobile = () => {
   const [openImageIndex, setOpenImageIndex] = useState<number | null>(null);
   const modalContainerRef = useRef<HTMLDivElement>(null);
 
+  const preloadImage = (src: string) => {
+    const img = new Image();
+    img.src = `/src/assets/${src}`;
+  };
+
   const openModal = (index: number) => setOpenImageIndex(index);
   const closeModal = () => setOpenImageIndex(null);
 
@@ -173,7 +178,7 @@ const PhotosMobile = () => {
             {imageDataCompressed.map((item, index) => (
               <div
                 key={index}
-                className="transition-transform transform w-[31vh] h-[31vh] z-10"
+                className="transition-transform transform hover:scale-105 w-[31vh] h-[31vh] z-10"
                 onClick={() => openModal(index)}
               >
                 <img
@@ -181,7 +186,10 @@ const PhotosMobile = () => {
                   alt="Polaroid background"
                   className="w-full h-full"
                 />
-                <div className="absolute top-[16%] left-[7%] w-[85%] h-[55%]">
+                <div
+                  className="absolute top-[16%] left-[7%] w-[85%] h-[55%]"
+                  onMouseEnter={() => preloadImage(imageData[index].src)}
+                >
                   <img
                     src={`/src/assets/Preview Images/${item.src}`}
                     alt={`Thumbnail ${index + 1}`}

@@ -104,6 +104,11 @@ const Photos = () => {
   const [openImageIndex, setOpenImageIndex] = useState<number | null>(null);
   const modalContainerRef = useRef<HTMLDivElement>(null);
 
+  const preloadImage = (src: string) => {
+    const img = new Image();
+    img.src = `/src/assets/${src}`;
+  };
+
   const openModal = (index: number) => {
     setOpenImageIndex(index);
   };
@@ -190,7 +195,10 @@ const Photos = () => {
                       src="/images/Photos/polaroid_bg.svg"
                       alt="Polaroid background"
                     />
-                    <div className="absolute top-[16%] left-[8%] w-[84%] h-[60%] overflow-hidden z-20">
+                    <div
+                      className="absolute top-[16%] left-[8%] w-[84%] h-[60%] overflow-hidden z-20"
+                      onMouseEnter={() => preloadImage(imageData[index].src)}
+                    >
                       <img
                         className="w-full h-full object-cover z-20"
                         src={`/src/assets/Preview Images/${item.src}`}

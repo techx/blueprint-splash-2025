@@ -7,6 +7,13 @@ const Tracks = () => {
   const [hoverDonutImage, setHoverDonutImage] = useState(0);
   const [track, setTrack] = useState(0);
 
+  const preloadImage = (donut: number) => {
+    const openedDonut = new Image();
+    const foxDonut = new Image();
+    openedDonut.src = `/images/Tracks/boxstates/opened/donut${donut}.svg`;
+    foxDonut.src = `/images/Tracks/boxstates/opened/foxdonut${donut}.svg`;
+  };
+
   const handleImageClick = () => {
     setIsImageClicked(true);
   };
@@ -88,7 +95,10 @@ const Tracks = () => {
                           left,
                         }}
                         onClick={() => setTrack(trackNum)}
-                        onMouseEnter={() => setHoverDonutImage(trackNum)}
+                        onMouseEnter={() => {
+                          preloadImage(trackNum);
+                          setHoverDonutImage(trackNum);
+                        }}
                         onMouseLeave={() => setHoverDonutImage(0)}
                       >
                         <div className="text-pale-yellow text-center md:text-[10px] font-semibold">
@@ -353,7 +363,7 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
         </div>
         <img
           className="h-auto w-[20vw] -top-[7.5%] left-[2%] absolute z-30"
-          src={`/images/Tracks/boxstates/opened/donut${track}.png`}
+          src={`/images/Tracks/boxstates/opened/donut${track}.svg`}
           alt="track"
           onClick={() => setTrack(0)}
         />
@@ -479,7 +489,7 @@ function TrackModal({ track, setTrack }: { track: number; setTrack: any }) {
           </div>
           <img
             className="h-[52vh] w-[28vw] object-contain -bottom-8 -right-[28%] absolute z-30"
-            src={`/images/Tracks/boxstates/opened/foxdonut${track}.png`}
+            src={`/images/Tracks/boxstates/opened/foxdonut${track}.svg`}
             alt="track"
           />
         </div>
