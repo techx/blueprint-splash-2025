@@ -7,47 +7,47 @@ interface ImageData {
 
 const imageData: ImageData[] = [
   {
-    src: "1.jpg",
+    src: "/Full Images/Full1.JPG",
     caption:
       "A visitor from Boston Dynamics, Spot, attends a workshop alongside Blueprint '24 attendees.",
   },
   {
-    src: "2.jpg",
+    src: "/Full Images/Full2.JPG",
     caption:
       "Attendees had the chance to talk with local organizations at the organization fair.",
   },
   {
-    src: "3.jpg",
-    caption: "[caption 3]",
+    src: "/Full Images/Full3.JPG",
+    caption: "Blueprint ‘24 attendees at the hardware learnathon workshop!",
   },
   {
-    src: "4.jpg",
+    src: "/Full Images/Full4.JPG",
     caption: "[caption 4]",
   },
   {
-    src: "5.jpg",
+    src: "/Full Images/Full5.JPG",
     caption: "Hackathon day begins!",
   },
   {
-    src: "6.jpg",
+    src: "/Full Images/Full6.JPG",
     caption: "Teams are given 8 hours to complete their hackathon project.",
   },
   {
-    src: "7.jpg",
+    src: "/Full Images/Full7.JPG",
     caption: "A surprise visit from Tim the Beaver, MIT's mascot!",
   },
   {
-    src: "8.jpg",
+    src: "/Full Images/Full8.JPG",
     caption:
       "Attendees race to build the tallest cup stacking tower in one of the Blueprint '24 mini-events.",
   },
   {
-    src: "9.jpg",
+    src: "/Full Images/Full9.JPG",
     caption:
       "The final stretch before the submission deadline on hackathon day.",
   },
   {
-    src: "10.jpg",
+    src: "/Full Images/Full10.JPG",
     caption: "The winners of the general category from Blueprint '24.",
   },
 ];
