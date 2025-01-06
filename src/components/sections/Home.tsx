@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -109,6 +109,17 @@ const HoverableModel = ({ onObjectClick, ...props }: HoverableModelProps) => {
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const [modelScale, setModelScale] = useState(0.8);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setModelScale(window.innerWidth < 1000 ? 0.6 : 0.8);
+    };
+
+    handleResize(); // Set initial scale
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleObjectClick = async (clickedMesh: string) => {
     const route = name_to_link[clickedMesh];
@@ -139,7 +150,10 @@ const Home: React.FC = () => {
         >
           <ambientLight intensity={0.5} />
           <group position={[0, -1.8, 0]}>
-            <HoverableModel scale={0.8} onObjectClick={handleObjectClick} />
+            <HoverableModel
+              scale={modelScale}
+              onObjectClick={handleObjectClick}
+            />
           </group>
           <OrbitControls
             minDistance={16}
