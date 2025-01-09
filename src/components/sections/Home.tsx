@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Model } from "../Test.jsx";
+import { Model } from "../Room.jsx";
 import { Mesh, MeshStandardMaterial } from "three";
 
 interface NameToLink {

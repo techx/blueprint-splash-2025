@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Model } from "../Test.jsx";
+import { Model } from "../Room.jsx";
 
 const HomeMobile: React.FC = () => {
   return (
