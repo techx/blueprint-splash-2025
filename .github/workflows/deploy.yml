@@ -18,14 +18,11 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Install Yarn
-        run: npm install -g yarn
-
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
       - name: Build the React app
-        run: yarn build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.2
