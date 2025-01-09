@@ -6826,7 +6826,7 @@
   ],
   "buffers": [
     {
-      "uri": "https://blueprint-2025-bin.s3.us-east-1.amazonaws.com/final_model_4_data.bin",
+      "uri": "final_model_4_data.bin",
       "byteLength": 313759032
     }
   ]
