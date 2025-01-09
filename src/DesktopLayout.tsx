@@ -13,7 +13,7 @@ function DesktopLayout() {
   return (
     <div className="flex flex-col h-screen overflow-hidden justify-between relative">
       <div className="flex flex-col justify-start">
-        <div className="fixed top-4 w-full px-8 flex justify-between items-center z-30">
+        <div className="fixed top-4 w-full px-8 flex justify-between items-center z-50">
           <Link to="/">
             <img
               src={logo}
