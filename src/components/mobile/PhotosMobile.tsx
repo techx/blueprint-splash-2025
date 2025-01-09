@@ -105,7 +105,7 @@ const PhotosMobile = () => {
 
   const preloadImage = (src: string) => {
     const img = new Image();
-    img.src = `/src/assets/${src}`;
+    img.src = `/images/Photos/${src}`;
   };
 
   const openModal = (index: number) => setOpenImageIndex(index);
@@ -186,7 +186,7 @@ const PhotosMobile = () => {
                   onMouseEnter={() => preloadImage(imageData[index].src)}
                 >
                   <img
-                    src={`/src/assets/Preview Images/${item.src}`}
+                    src={`/images/Photos/Preview Images/${item.src}`}
                     alt={`Thumbnail ${index + 1}`}
                     className="w-full h-full object-cover"
                   />
@@ -206,7 +206,7 @@ const PhotosMobile = () => {
           >
             <div className="flex-1 overflow-hidden">
               <img
-                src={`/src/assets/${imageData[openImageIndex].src}`}
+                src={`/images/Photos/${imageData[openImageIndex].src}`}
                 alt={`Large View ${openImageIndex + 1}`}
                 className="w-full h-full object-contain"
               />

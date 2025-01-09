@@ -8,7 +8,7 @@ const HomeMobile: React.FC = () => {
     <div className="h-[360px] pb-4">
       <Suspense
         fallback={
-          <div className="absolute top-[30%] left-1/2">
+          <div className="absolute top-[25%] left-[50vw]">
             <div className="w-8 h-8 border-4 border-magenta border-t-light-pink rounded-full animate-spin mx-auto"></div>
           </div>
         }

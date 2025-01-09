@@ -106,7 +106,7 @@ const Photos = () => {
 
   const preloadImage = (src: string) => {
     const img = new Image();
-    img.src = `/src/assets/${src}`;
+    img.src = `/images/Photos/${src}`;
   };
 
   const openModal = (index: number) => {
@@ -195,7 +195,7 @@ const Photos = () => {
                     >
                       <img
                         className="w-full h-full object-cover z-20"
-                        src={`/src/assets/Preview Images/${item.src}`}
+                        src={`/images/Photos/Preview Images/${item.src}`}
                         alt={`Thumbnail ${index + 1}`}
                         onClick={() => openModal(index)}
                       />
@@ -221,7 +221,7 @@ const Photos = () => {
                   <div className="flex flex-col h-full">
                     <div className="flex-1 overflow-hidden">
                       <img
-                        src={`/src/assets/${imageData[openImageIndex].src}`}
+                        src={`/images/Photos/${imageData[openImageIndex].src}`}
                         alt={`Large View ${openImageIndex + 1}`}
                         className="w-full object-contain"
                       />
