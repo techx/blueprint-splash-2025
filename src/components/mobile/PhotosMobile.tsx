@@ -146,18 +146,18 @@ const PhotosMobile = () => {
         {/* Photo string and photos */}
         <div
           className="relative mt-12 w-[100%] h-[34vh] overflow-y-hidden overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-          onWheel={(e) => {
-            const container = e.currentTarget;
-            e.stopPropagation();
-            container.scrollLeft += e.deltaY;
-          }}
-          onMouseEnter={() => {
-            document.body.style.overflow = "hidden";
-          }}
-          onMouseLeave={() => {
-            document.body.style.overflow = "";
-          }}
-          style={{ touchAction: "none" }}
+          // onWheel={(e) => {
+          //   const container = e.currentTarget;
+          //   e.stopPropagation();
+          //   container.scrollLeft += e.deltaY;
+          // }}
+          // onMouseEnter={() => {
+          //   document.body.style.overflow = "hidden";
+          // }}
+          // onMouseLeave={() => {
+          //   document.body.style.overflow = "";
+          // }}
+          // style={{ touchAction: "none" }}
         >
           {/* Photo string */}
           <div className="relative w-[350vh] z-40">
