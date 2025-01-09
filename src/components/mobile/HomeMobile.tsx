@@ -5,10 +5,10 @@ import { Model } from "../Room.jsx";
 
 const HomeMobile: React.FC = () => {
   return (
-    <div className="h-[360px] pb-4">
+    <div className="h-[360px] pb-4 relative">
       <Suspense
         fallback={
-          <div className="absolute top-[25%] left-[50vw]">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="w-8 h-8 border-4 border-magenta border-t-light-pink rounded-full animate-spin mx-auto"></div>
           </div>
         }
