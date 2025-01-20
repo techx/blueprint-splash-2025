@@ -50,7 +50,7 @@ function DesktopLayout() {
         </Routes>
       </div>
 
-      <div className="absolute bottom-0 w-full">
+      <div className="absolute bottom-0 w-full z-50">
         <Footer />
       </div>
     </div>
