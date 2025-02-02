@@ -167,9 +167,15 @@ const FaqMobile = () => {
       title: "Can I volunteer to judge or mentor?",
       content: (
         <>
-          If you're in college or beyond, we will consider your application! We
-          will update this link when our application for judging/mentoring
-          opens.
+          If you're in college or beyond, we will consider your application!{" "}
+          <a
+            href="https://forms.gle/dQcKgcqCF8gXEDy1A"
+            className="text-dark-green font-bold underline hover:opacity-70"
+            target="_blank"
+          >
+            Here
+          </a>{" "}
+          is the application link.
         </>
       ),
     },
