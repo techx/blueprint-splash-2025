@@ -33,7 +33,7 @@ function DesktopLayout() {
           <div>3.1 - 3.2 2025</div>
           <Countdown
             className="flex flex-col items-end"
-            to={new Date("February 3, 2025 11:59:59 EST")}
+            to={new Date("February 2, 2025 23:59:59 EST")}
           />
         </div>
         <div></div>
