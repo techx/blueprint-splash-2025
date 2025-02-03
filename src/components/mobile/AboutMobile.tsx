@@ -9,7 +9,7 @@ const AboutMobile = () => {
         <div className="text-center font-semibold text-lg">3.1 - 3.2 2025</div>
         <Countdown
           className="text-center font-semibold text-lg"
-          to={new Date("February 3, 2025 11:59:59 EST")}
+          to={new Date("February 3, 2025 23:59:59 EST")}
         />
 
         <p className="text-base leading-relaxed mx-4">
