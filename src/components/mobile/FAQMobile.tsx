@@ -186,9 +186,15 @@ const FaqMobile = () => {
           Due to logistical & financial restrictions, we cannot reimburse
           lodging expenses for this event, and in order to provide our attendees
           with the best possible experience, we will not be able to accommodate
-          virtual hackers. Travel subsidies may be available through the support
-          of Hack Club's Gas Fund, but these details are still tentative and we
-          cannot guarantee travel support.
+          virtual hackers. However, we are partnering with Hack Club to provide
+          transportation subsidies:{" "}
+          <a
+            href="https://forms.hackclub.com/t/8EieSvYSpdus"
+            className="text-dark-green font-bold underline hover:opacity-70"
+            target="_blank"
+          >
+            Gas Fund
+          </a>
         </>
       ),
     },
