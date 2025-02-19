@@ -1,4 +1,14 @@
 const ScheduleMobile = () => {
+  const bpweek_events: Record<string, string> = {
+    "Feb 26, 7:00pm": "Assistive Tech",
+    "Feb 27, 7:00pm": "Motorsports",
+    "Feb 27, 8:00pm": "Team Formation",
+    "Feb 27, 9:00pm": "MITIT",
+    "Feb 28, 7:00pm": "Battlecode",
+    "Feb 28, 8:00pm": "Intro to Git",
+    "Feb 28, 9:00pm": "Intro to Figma",
+  };
+
   const learnathon_events: Record<string, string> = {
     "8:30am": "Check-in & breakfast",
     "9:30am": "Opening",
@@ -45,6 +55,17 @@ const ScheduleMobile = () => {
           <p className="text-m font-bold mt-3 mb-3 text-center">
             Subject to change!
           </p>
+
+          <h2 className="text-4xl font-bold mb-3 break-words">
+            BLUEPRINT WEEK [2/26-2/28]
+          </h2>
+          {Object.entries(bpweek_events).map(([time, event], index) => (
+            <div key={index} className="flex flex-row space-x-4">
+              <div className="w-3/4">{event}</div>
+              <div className="w-1/8 text-right whitespace-nowrap">{time}</div>
+            </div>
+          ))}
+
           <h2 className="text-4xl font-bold mb-3 break-words">
             LEARNATHON [3/1]
           </h2>

@@ -1,6 +1,16 @@
 import Modal from "../Modal";
 import { useEffect, useState } from "react";
 
+const bpweek_events: Record<string, string> = {
+  "Feb 26, 7:00pm": "Assistive Tech",
+  "Feb 27, 7:00pm": "Motorsports",
+  "Feb 27, 8:00pm": "Team Formation",
+  "Feb 27, 9:00pm": "MITIT",
+  "Feb 28, 7:00pm": "Battlecode",
+  "Feb 28, 8:00pm": "Intro to Git",
+  "Feb 28, 9:00pm": "Intro to Figma",
+};
+
 const learnathon_events: Record<string, string> = {
   "8:30am": "Check-in & breakfast",
   "9:30am": "Opening",
@@ -74,13 +84,15 @@ const Schedule = () => {
           {isMobile && (
             <h1 className="text-7xl font-bold mt-5 mb-3">Schedule</h1>
           )}
-          {/* <div className="text-4xl font-bold mt-3 mb-3">BP Week</div>
-            {bpweek_events.map(([date, event], index) => (
-              <div key={index} className="flex flex-row space-x-4">
-                <div className="w-1/2">{event}</div>
-                <div className="w-1/2 text-right">{date}</div>
-              </div>
-            ))} */}
+          <h2 className="text-4xl font-bold mb-3">
+            BLUEPRINT WEEK [2/26-2/28]
+          </h2>
+          {Object.entries(bpweek_events).map(([time, event], index) => (
+            <div key={index} className="flex flex-row space-x-4">
+              <div className="w-1/2">{event}</div>
+              <div className="w-1/2 text-right">{time}</div>
+            </div>
+          ))}
           <h2 className="text-4xl font-bold mb-3">LEARNATHON [3/1]</h2>
           {Object.entries(learnathon_events).map(([time, event], index) => (
             <div key={index} className="flex flex-row space-x-4">
