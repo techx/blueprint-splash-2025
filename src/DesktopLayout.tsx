@@ -1,40 +1,41 @@
-import { Routes, Route, Link } from "react-router-dom";
-import logo from "/images/logo.png";
-import Footer from "./components/sections/Footer";
+import { Link, Route, Routes } from "react-router-dom";
 import About from "./components/sections/About";
-import Tracks from "./components/sections/Tracks";
 import Faq from "./components/sections/FAQ";
+import Footer from "./components/sections/Footer";
+import Home from "./components/sections/Home";
 import Photos from "./components/sections/Photos";
 import Schedule from "./components/sections/Schedule";
-import Home from "./components/sections/Home";
-import Countdown from "./components/Countdown";
+import Tracks from "./components/sections/Tracks";
+import logo from "/images/logo.png";
 
 function DesktopLayout() {
   return (
     <div className="flex flex-col h-screen overflow-hidden justify-between relative">
-      <div className="flex flex-col justify-start">
-        <div className="fixed top-4 w-full px-8 flex justify-between items-center z-50">
-          <Link to="/">
-            <img
-              src={logo}
-              alt="HackMIT Logo"
-              className="w-24 h-24 object-contain"
-            />
-          </Link>
+      <div className="w-full flex justify-center bg-magenta text-light-pink text-xl py-2">
+        <div>
+          Interested in Blueprint 2026? Fill out our{" "}
           <a
-            href="https://plume.hackmit.org"
-            target="_blank"
-            className="bg-magenta text-light-pink px-4 py-2 rounded-lg font-medium text-4xl hover:opacity-80 transition-opacity"
+            className="text-pale-yellow underline cursor-pointer"
+            href="https://go.hackmit.org/bp-interest"
           >
-            Apply
-          </a>
+            interest form
+          </a>{" "}
+          to receive updates as soon as applications open!
         </div>
-        <div className="fixed top-28 w-full flex items-center justify-between text-magenta font-medium text-xl px-8 z-30">
-          <div>3.1 - 3.2 2025</div>
-          <Countdown
-            className="flex flex-col items-end"
-            to={new Date("February 3, 2025 23:59:59 EST")}
-          />
+      </div>
+      <div className="relative flex flex-col justify-start">
+        <div className="absolute w-full px-8 flex justify-between items-center z-50">
+          <div>
+            <Link to="/">
+              <img
+                src={logo}
+                alt="HackMIT Logo"
+                className="w-24 h-24 object-contain"
+              />
+            </Link>
+            <div>3.1 - 3.2 2025</div>
+          </div>
+          <div />
         </div>
         <div></div>
       </div>
